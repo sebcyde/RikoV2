@@ -1,0 +1,15 @@
+#LoginPage {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(32, 32, 32);
+}
+#LoginPage #LoginCard.LoginCard {
+  background-color: rgb(56, 56, 56);
+}
+#LoginPage #LoginCard.LoginCard span {
+  text-align: center;
+  font-size: 30px;
+}
+#LoginPage #LoginCard.LoginCard div {
+  text-align: center;
+}/*# sourceMappingURL=LoginPage.css.map */
