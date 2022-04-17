@@ -14,13 +14,13 @@ function LoginPage() {
 
 	const { setLoading, setUser } = useContext(LoginContext);
 
-	async function AppLogin(email, password) {
+	async function AppLogin() {
 		console.log('Log In Request Sent');
-		setLoading(true);
-		await Login(email, password);
+		// setLoading(true);
+		Login(LoginEmail, LoginPassword);
 		console.log('User Log In Successful');
-		setLoading(false);
-		setUser(true);
+		// setLoading(false);
+		// setUser(true);
 		navigate('/');
 	}
 
@@ -63,9 +63,9 @@ function LoginPage() {
 								node="button"
 								waves="light"
 								id="LoginSubmitButton"
-								onClick={() => {
-									AppLogin(LoginEmail, LoginPassword);
-									navigate('/Home');
+								onClick={(event) => {
+									event.preventDefault();
+									AppLogin();
 								}}
 							>
 								Sign In
