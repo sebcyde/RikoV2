@@ -1,15 +1,29 @@
 import React from 'react';
 import { Row, Col, Card, Icon, Button, TextInput } from 'react-materialize';
-import '../StyleSheets/LoginPage.css';
-import { useRef } from 'react';
+import '../StyleSheets/SignUpPage.css';
+import { useRef, useContext, useState } from 'react';
+import { LoginContext } from '../Context/Login';
+import { SignUp, listenToAuthState } from '../Firebase';
+import { useNavigate, Link } from 'react-router-dom';
 
 function SignUpPage() {
-	const SignUpButtonRef = useRef();
-	const SignUpPasswordRef = useRef();
-	const SignUpEmailRef = useRef();
+	const navigate = useNavigate();
 
-	const SignUpPassword = SignUpPasswordRef.current.value;
-	const SignUpEmail = SignUpEmailRef.current.value;
+	const [SignUpEmail, setSignUpEmail] = useState('');
+	const [SignUpPassword, setSignUpPassword] = useState('');
+
+	const { setUser } = useContext(LoginContext);
+	const { Loading, setLoading } = useContext(LoginContext);
+
+	async function AppSignUp() {
+		console.log('Sign Up Request Sent');
+		// setLoading(true);
+		SignUp(SignUpEmail, SignUpPassword);
+		console.log('User Creation Successful');
+		// setLoading(false);
+
+		navigate('/');
+	}
 
 	return (
 		<div id="SignUpPage">
@@ -31,25 +45,35 @@ function SignUpPage() {
 								id="SignUpEmailInput"
 								placeholder="Email"
 								type="text"
-								ref={SignUpEmailRef}
+								onChange={(event) => {
+									setSignUpEmail(event.target.value);
+								}}
 							/>
 
 							<TextInput
 								placeholder="Password"
 								type="password"
-								ref={SignUpPasswordRef}
+								onChange={(event) => {
+									setSignUpPassword(event.target.value);
+								}}
 								id="SignUpPasswordInput"
 							/>
 
 							<Button
 								type="submit"
-								ref={SignUpButtonRef}
 								node="button"
 								waves="light"
 								id="SignUpSubmitButton"
+								onClick={(event) => {
+									event.preventDefault();
+									AppSignUp();
+								}}
 							>
-								Sign In
+								Sign Up
 							</Button>
+							<Link to="/" id="CreateAnAccountLogInButton">
+								Already Have An Account
+							</Link>
 						</form>
 					</Card>
 				</Col>

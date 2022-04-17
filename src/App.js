@@ -1,39 +1,50 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { BrowserRouter, Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
 import LoginPage from './Pages/LoginPage';
 import LoadingScreen from './LoadingScreen';
 import Home from './Pages/Home';
-import { LogInEmail, LogInPassword } from './Pages/LoginPage';
-import { SignUpEmail, SignUpPassword } from './Pages/SignUpPage';
+import { Login, SignUp, SignOut } from './Firebase';
+import { onAuthStateChanged, getAuth } from 'firebase/auth';
+
+import { LoginContext } from './Context/Login';
+import { SignUpContext } from './Context/SignUp';
+import SignUpPage from './Pages/SignUpPage';
 
 function App() {
+	const auth = getAuth();
 	const [Loading, setLoading] = useState(false);
+	const [User, setUser] = useState(false);
 
-	let User = false;
+	auth.onAuthStateChanged(function (user) {
+		if (user) {
+			setUser(true);
+		} else {
+			// No user is signed in.
+			setUser(false);
+		}
+	});
 
 	return (
-		<Router>
+		<BrowserRouter>
 			{Loading ? (
 				<LoadingScreen />
 			) : (
 				<div id="App">
-					{/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-					<Switch>
-						{/* <Route path="/about">
-							<About />
-						</Route>
-						<Route path="/users">
-							<Users />
-						</Route> */}
-						<Route path="/">{User ? <Home /> : <LoginPage />}</Route>
-					</Switch>
+					<LoginContext.Provider value={(Loading, setLoading, setUser)}>
+						<Routes>
+							<Route path="/" element={User ? <Home /> : <LoginPage />} />
+							<Route
+								path="/SignUp"
+								element={User ? <Home /> : <SignUpPage />}
+							/>
+						</Routes>
+					</LoginContext.Provider>
 				</div>
 			)}
-		</Router>
+		</BrowserRouter>
 	);
 }
 

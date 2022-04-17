@@ -1,15 +1,28 @@
 import React from 'react';
 import { Row, Col, Card, Icon, Button, TextInput } from 'react-materialize';
 import '../StyleSheets/LoginPage.css';
-import { useRef } from 'react';
+import { useRef, useState, useContext } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { LoginContext } from '../Context/Login';
+import { Login } from '../Firebase';
 
 function LoginPage() {
-	const LogInButtonRef = useRef();
-	const LogInPasswordRef = useRef();
-	const LogInEmailRef = useRef();
+	const navigate = useNavigate();
 
-	const LogInPassword = LogInButtonRef.current.value;
-	const LogInEmail = LogInButtonRef.current.value;
+	const [LoginEmail, setLoginEmail] = useState('');
+	const [LoginPassword, setLoginPassword] = useState('');
+
+	const { setLoading, setUser } = useContext(LoginContext);
+
+	async function AppLogin(email, password) {
+		console.log('Log In Request Sent');
+		setLoading(true);
+		await Login(email, password);
+		console.log('User Log In Successful');
+		setLoading(false);
+		setUser(true);
+		navigate('/');
+	}
 
 	return (
 		<div id="LoginPage">
@@ -31,26 +44,35 @@ function LoginPage() {
 								id="EmailInput"
 								placeholder="Email"
 								type="text"
-								ref={LogInEmailRef}
+								onChange={(event) => {
+									setLoginEmail(event.target.value);
+								}}
 							/>
 
 							<TextInput
 								placeholder="Password"
 								type="password"
-								ref={LogInPasswordRef}
+								onChange={(event) => {
+									setLoginPassword(event.target.value);
+								}}
 								id="PasswordInput"
 							/>
 
 							<Button
 								type="submit"
-								ref={LogInButtonRef}
 								node="button"
 								waves="light"
 								id="LoginSubmitButton"
+								onClick={() => {
+									AppLogin(LoginEmail, LoginPassword);
+									navigate('/Home');
+								}}
 							>
 								Sign In
 							</Button>
-							<a id="LogInCreateAnAccountButton">Create An Account</a>
+							<Link to="/SignUp" id="LogInCreateAnAccountButton">
+								Create An Account
+							</Link>
 						</form>
 					</Card>
 				</Col>

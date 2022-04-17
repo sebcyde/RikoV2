@@ -57,4 +57,10 @@
   background-color: rgb(140, 0, 0);
   width: 50%;
   height: 3.5em;
+}
+#SignUpPage #SignUpCard.SignUpCard #SignUpInputForm #CreateAnAccountLogInButton {
+  margin: 0;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
 }/*# sourceMappingURL=SignUpPage.css.map */
