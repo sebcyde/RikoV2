@@ -5,14 +5,31 @@
 
 	#LoginCard.LoginCard {
 		background-color: rgb(56, 56, 56);
+		#LoginInputForm {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
 
-		span {
-			text-align: center;
-			font-size: 30px;
-		}
+			span {
+				text-align: center;
+				font-size: 35px;
+				margin-bottom: 1em;
+			}
 
-		div {
-			text-align: center;
+			#EmailInput,
+			#PasswordInput {
+				margin-bottom: 1em;
+				width: 100%;
+			}
+
+			Button {
+				text-align: center;
+				margin-top: 2em;
+				margin-bottom: 2em;
+				background-color: rgb(140, 0, 0);
+				width: 50%;
+			}
 		}
 	}
 }

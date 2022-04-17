@@ -6,10 +6,26 @@
 #LoginPage #LoginCard.LoginCard {
   background-color: rgb(56, 56, 56);
 }
-#LoginPage #LoginCard.LoginCard span {
-  text-align: center;
-  font-size: 30px;
+#LoginPage #LoginCard.LoginCard #LoginInputForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-#LoginPage #LoginCard.LoginCard div {
+#LoginPage #LoginCard.LoginCard #LoginInputForm span {
   text-align: center;
+  font-size: 35px;
+  margin-bottom: 1em;
+}
+#LoginPage #LoginCard.LoginCard #LoginInputForm #EmailInput,
+#LoginPage #LoginCard.LoginCard #LoginInputForm #PasswordInput {
+  margin-bottom: 1em;
+  width: 100%;
+}
+#LoginPage #LoginCard.LoginCard #LoginInputForm Button {
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  background-color: rgb(140, 0, 0);
+  width: 50%;
 }/*# sourceMappingURL=LoginPage.css.map */
