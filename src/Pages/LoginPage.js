@@ -4,9 +4,12 @@ import '../StyleSheets/LoginPage.css';
 import { useRef } from 'react';
 
 function LoginPage() {
-	const LogInButton = useRef();
-	const LogInPassword = useRef();
-	const LogInEmail = useRef();
+	const LogInButtonRef = useRef();
+	const LogInPasswordRef = useRef();
+	const LogInEmailRef = useRef();
+
+	const LogInPassword = LogInButtonRef.current.value;
+	const LogInEmail = LogInButtonRef.current.value;
 
 	return (
 		<div id="LoginPage">
@@ -18,35 +21,36 @@ function LoginPage() {
 						closeIcon={<Icon>close</Icon>}
 						revealIcon={<Icon>more_vert</Icon>}
 						textClassName="white-text"
-						title="Welcome Back"
 					>
+						<span id="LoginText">
+							<h1>Welcome Back</h1>
+							<p>Enter You Login Details</p>
+						</span>
 						<form id="LoginInputForm">
 							<TextInput
 								id="EmailInput"
 								placeholder="Email"
 								type="text"
-								ref={LogInEmail}
+								ref={LogInEmailRef}
 							/>
 
 							<TextInput
 								placeholder="Password"
 								type="password"
-								ref={LogInPassword}
+								ref={LogInPasswordRef}
 								id="PasswordInput"
 							/>
 
 							<Button
 								type="submit"
-								ref={LogInButton}
+								ref={LogInButtonRef}
 								node="button"
-								style={{
-									marginRight: '5px',
-								}}
 								waves="light"
 								id="LoginSubmitButton"
 							>
 								Sign In
 							</Button>
+							<a id="LogInCreateAnAccountButton">Create An Account</a>
 						</form>
 					</Card>
 				</Col>

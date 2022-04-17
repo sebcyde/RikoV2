@@ -1,4 +1,4 @@
-#LoginPage {
+#SignUpPage {
   height: 100%;
   width: 100%;
   background-color: rgb(32, 32, 32);
@@ -6,61 +6,55 @@
   flex-direction: column;
   justify-content: center;
 }
-#LoginPage .row {
+#SignUpPage .row {
   width: 90%;
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-#LoginPage #LoginCard.LoginCard {
+#SignUpPage #SignUpCard.SignUpCard {
   background-color: rgb(56, 56, 56);
   text-align: center;
   min-width: 100%;
   display: flex;
   justify-content: center;
 }
-#LoginPage #LoginCard.LoginCard div {
+#SignUpPage #SignUpCard.SignUpCard div {
   width: 100%;
 }
-#LoginPage #LoginCard.LoginCard #LoginText h1 {
+#SignUpPage #SignUpCard.SignUpCard #SignUpText h1 {
   font-size: 40px;
   margin-bottom: 0;
 }
-#LoginPage #LoginCard.LoginCard #LoginText p {
+#SignUpPage #SignUpCard.SignUpCard #SignUpText p {
   margin-top: 0;
   margin-bottom: 1em;
   font-size: large;
 }
-#LoginPage #LoginCard.LoginCard #LoginInputForm {
+#SignUpPage #SignUpCard.SignUpCard #SignUpInputForm {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#LoginPage #LoginCard.LoginCard #LoginInputForm span {
+#SignUpPage #SignUpCard.SignUpCard #SignUpInputForm span {
   text-align: center;
   font-size: 40px;
   margin-bottom: 1em;
 }
-#LoginPage #LoginCard.LoginCard #LoginInputForm #EmailInput,
-#LoginPage #LoginCard.LoginCard #LoginInputForm #PasswordInput {
+#SignUpPage #SignUpCard.SignUpCard #SignUpInputForm #SignUpEmailInput,
+#SignUpPage #SignUpCard.SignUpCard #SignUpInputForm #SignUpPasswordInput {
   margin-top: 1em;
   margin-bottom: 0;
   width: 100%;
   color: white;
   font-size: large;
 }
-#LoginPage #LoginCard.LoginCard #LoginInputForm Button {
+#SignUpPage #SignUpCard.SignUpCard #SignUpInputForm Button {
   text-align: center;
   margin-top: 3.5em;
   margin-bottom: 1em;
   background-color: rgb(140, 0, 0);
   width: 50%;
   height: 3.5em;
-}
-#LoginPage #LoginCard.LoginCard #LoginInputForm #LogInCreateAnAccountButton {
-  margin: 0;
-  padding: 0;
-  text-decoration: underline;
-  cursor: pointer;
-}/*# sourceMappingURL=LoginPage.css.map */
+}/*# sourceMappingURL=SignUpPage.css.map */

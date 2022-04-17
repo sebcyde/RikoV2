@@ -1,4 +1,4 @@
-#LoginPage {
+#SignUpPage {
 	height: 100%;
 	width: 100%;
 	background-color: rgb(32, 32, 32);
@@ -13,7 +13,7 @@
 		justify-content: center;
 	}
 
-	#LoginCard.LoginCard {
+	#SignUpCard.SignUpCard {
 		background-color: rgb(56, 56, 56);
 		text-align: center;
 		min-width: 100%;
@@ -24,7 +24,7 @@
 			width: 100%;
 		}
 
-		#LoginText {
+		#SignUpText {
 			h1 {
 				font-size: 40px;
 				margin-bottom: 0;
@@ -36,7 +36,7 @@
 			}
 		}
 
-		#LoginInputForm {
+		#SignUpInputForm {
 			width: 100%;
 			display: flex;
 			flex-direction: column;
@@ -48,8 +48,8 @@
 				margin-bottom: 1em;
 			}
 
-			#EmailInput,
-			#PasswordInput {
+			#SignUpEmailInput,
+			#SignUpPasswordInput {
 				margin-top: 1em;
 				margin-bottom: 0;
 				width: 100%;
@@ -64,13 +64,6 @@
 				background-color: rgb(140, 0, 0);
 				width: 50%;
 				height: 3.5em;
-			}
-
-			#LogInCreateAnAccountButton {
-				margin: 0;
-				padding: 0;
-				text-decoration: underline;
-				cursor: pointer;
 			}
 		}
 	}

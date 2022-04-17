@@ -6,6 +6,8 @@ import './App.css';
 import LoginPage from './Pages/LoginPage';
 import LoadingScreen from './LoadingScreen';
 import Home from './Pages/Home';
+import { LogInEmail, LogInPassword } from './Pages/LoginPage';
+import { SignUpEmail, SignUpPassword } from './Pages/SignUpPage';
 
 function App() {
 	const [Loading, setLoading] = useState(false);
