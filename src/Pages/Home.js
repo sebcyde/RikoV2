@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SignOut } from '../Firebase';
 import { useNavigate, Link } from 'react-router-dom';
 import { Navbar, Icon, NavItem, Button } from 'react-materialize';
 import '../StyleSheets/Home.css';
+import Profile from './Profile';
+import Dashboard from './Dashboard';
+import Search from './Search';
+import Messages from './Messages';
 
 function Home() {
 	const navigate = useNavigate();
+
+	const [PageLoaded, setPageLoaded] = useState(<Profile />);
 
 	async function AppSignOut() {
 		// setLoading(true);
@@ -17,6 +23,22 @@ function Home() {
 				console.log('Sign Out Successful');
 				// setLoading(false);
 			});
+	}
+
+	function HomePageSearch(params) {
+		setPageLoaded(<Search />);
+	}
+
+	function HomePageDashboard() {
+		setPageLoaded(<Dashboard />);
+	}
+
+	function HomePageProfile() {
+		setPageLoaded(<Profile />);
+	}
+
+	function HomePageMessages(params) {
+		setPageLoaded(<Messages />);
 	}
 
 	return (
@@ -38,15 +60,46 @@ function Home() {
 				}}
 			>
 				<h1 id="NavbarTitle">Riko V2</h1>
-				<Link to="/SignUp" id="LogInCreateAnAccountButton">
+
+				<NavItem
+					href=""
+					onClick={(e) => {
+						e.preventDefault();
+						HomePageSearch();
+					}}
+				>
 					Search
-				</Link>
-				<Link to="/SignUp" id="LogInCreateAnAccountButton">
+				</NavItem>
+
+				<NavItem
+					href=""
+					onClick={(event) => {
+						event.preventDefault();
+						HomePageDashboard();
+					}}
+				>
+					Dashboard
+				</NavItem>
+
+				<NavItem
+					href=""
+					onClick={(event) => {
+						event.preventDefault();
+						HomePageProfile();
+					}}
+				>
 					My Profile
-				</Link>
-				<Link to="/SignUp" id="LogInCreateAnAccountButton">
+				</NavItem>
+
+				<NavItem
+					href=""
+					onClick={(event) => {
+						event.preventDefault();
+						HomePageMessages();
+					}}
+				>
 					Messages
-				</Link>
+				</NavItem>
 				<Button
 					id="SignOutButton"
 					node="a"
@@ -62,7 +115,7 @@ function Home() {
 					Sign Out
 				</Button>
 			</Navbar>
-			<h1 id="HomeTitle">Home</h1>
+			{PageLoaded}
 		</div>
 	);
 }
