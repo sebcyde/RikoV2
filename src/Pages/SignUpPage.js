@@ -16,13 +16,15 @@ function SignUpPage() {
 	const { Loading, setLoading } = useContext(LoginContext);
 
 	async function AppSignUp() {
-		console.log('Sign Up Request Sent');
 		// setLoading(true);
-		SignUp(SignUpEmail, SignUpPassword);
-		console.log('User Creation Successful');
-		// setLoading(false);
-
-		navigate('/');
+		await SignUp(SignUpEmail, SignUpPassword)
+			.then(() => {
+				navigate('/');
+			})
+			.then(() => {
+				console.log('User Creation Successful');
+				// setLoading(false);
+			});
 	}
 
 	return (

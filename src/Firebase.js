@@ -26,22 +26,25 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 
 export async function Login(email, password) {
-	signInWithEmailAndPassword(auth, email, password)
-		.then((userCredential) => {
-			// Signed in
-			const user = userCredential.user;
-			console.log(user);
-			return user;
-			// ...
-		})
-		.catch((error) => {
-			const errorMessage = error.message;
-			console.log(errorMessage);
-		});
+	try {
+		await signInWithEmailAndPassword(auth, email, password).then(
+			(userCredential) => {
+				// Signed in
+				const user = userCredential.user;
+				console.log(user);
+				return user;
+				// ...
+			}
+		);
+	} catch (error) {
+		const errorMessage = error.message;
+		console.log(errorMessage);
+		return errorMessage;
+	}
 }
 
 export async function SignUp(email, password) {
-	createUserWithEmailAndPassword(auth, email, password)
+	await createUserWithEmailAndPassword(auth, email, password)
 		.then((userCredential) => {
 			// Signed in
 			const user = userCredential.user;
@@ -57,7 +60,7 @@ export async function SignUp(email, password) {
 }
 
 export async function SignOut() {
-	signOut(auth)
+	await signOut(auth)
 		.then(() => {
 			// Sign-out successful.
 			console.log('Signed Out Successfully');

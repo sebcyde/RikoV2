@@ -1,29 +1,67 @@
 import React from 'react';
 import { SignOut } from '../Firebase';
 import { useNavigate, Link } from 'react-router-dom';
+import { Navbar, Icon, NavItem, Button } from 'react-materialize';
+import '../StyleSheets/Home.css';
 
 function Home() {
 	const navigate = useNavigate();
-	function AppSignOut() {
-		console.log('Sign Out Request Sent');
-		// setLoading(true);
-		SignOut();
-		console.log('Sign Out Successful');
-		// setLoading(false);
 
-		navigate('/');
+	async function AppSignOut() {
+		// setLoading(true);
+		await SignOut()
+			.then(() => {
+				navigate('/');
+			})
+			.then(() => {
+				console.log('Sign Out Successful');
+				// setLoading(false);
+			});
 	}
 
 	return (
-		<div>
-			<h1>Home</h1>
-			<button
-				onClick={() => {
-					AppSignOut();
+		<div id="HomeContainer">
+			<Navbar
+				alignLinks="right"
+				id="mobile-nav"
+				menuIcon={<Icon>menu</Icon>}
+				options={{
+					draggable: true,
+					edge: 'left',
+					inDuration: 250,
+					onCloseEnd: null,
+					onCloseStart: null,
+					onOpenEnd: null,
+					onOpenStart: null,
+					outDuration: 200,
+					preventScrolling: true,
 				}}
 			>
-				Sign Out
-			</button>
+				<Link to="/SignUp" id="LogInCreateAnAccountButton">
+					Search
+				</Link>
+				<Link to="/SignUp" id="LogInCreateAnAccountButton">
+					My Profile
+				</Link>
+				<Link to="/SignUp" id="LogInCreateAnAccountButton">
+					Messages
+				</Link>
+				<Button
+					id="SignOutButton"
+					node="a"
+					small
+					style={{
+						marginRight: '5px',
+					}}
+					onClick={() => {
+						AppSignOut();
+					}}
+					waves="light"
+				>
+					Sign Out
+				</Button>
+			</Navbar>
+			<h1 id="HomeTitle">Home</h1>
 		</div>
 	);
 }

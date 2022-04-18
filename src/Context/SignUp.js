@@ -1,3 +1,6 @@
 import { createContext } from 'react';
 
-export const SignUpContext = createContext({});
+export const LoadingContext = createContext({
+	Loading: false,
+	setLoading: () => {},
+});

@@ -1,0 +1,47 @@
+#HomeContainer {
+  margin: 0;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(32, 32, 32);
+  color: white;
+}
+#HomeContainer #HomeTitle {
+  text-align: center;
+  margin-top: 0;
+  padding-top: 1em;
+}
+#HomeContainer .nav-wrapper {
+  background-color: rgb(140, 0, 0);
+}
+#HomeContainer #mobile-nav {
+  background-color: rgb(32, 32, 32);
+  color: white;
+  padding: 0px;
+  padding-top: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+#HomeContainer #mobile-nav li {
+  width: 100%;
+  text-align: start;
+  margin-bottom: 2em;
+}
+#HomeContainer #mobile-nav li a {
+  color: white;
+  font-size: 30px;
+}
+#HomeContainer #mobile-nav li:nth-of-type(4) {
+  margin-top: auto;
+}
+#HomeContainer #mobile-nav #sidenav-SignOutButton {
+  width: 50%;
+  text-align: center;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  background-color: rgb(106, 0, 0);
+  font-size: large;
+}/*# sourceMappingURL=Home.css.map */

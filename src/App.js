@@ -8,15 +8,16 @@ import LoadingScreen from './LoadingScreen';
 import Home from './Pages/Home';
 import { Login, SignUp, SignOut } from './Firebase';
 import { onAuthStateChanged, getAuth } from 'firebase/auth';
-
+import { LoadingContext } from './Context/SignUp.js';
 import { LoginContext } from './Context/Login';
-import { SignUpContext } from './Context/SignUp';
 import SignUpPage from './Pages/SignUpPage';
 
 function App() {
 	const auth = getAuth();
-	const [Loading, setLoading] = useState(false);
+
 	const [User, setUser] = useState(false);
+	const [Loading, setLoading] = useState(false);
+	const value = { Loading, setLoading };
 
 	auth.onAuthStateChanged(function (user) {
 		if (user) {
@@ -27,23 +28,27 @@ function App() {
 		}
 	});
 
+	let test = 'test';
+
 	return (
 		<BrowserRouter>
-			{Loading ? (
-				<LoadingScreen />
-			) : (
-				<div id="App">
-					<LoginContext.Provider value={(Loading, setLoading, setUser)}>
-						<Routes>
-							<Route path="/" element={User ? <Home /> : <LoginPage />} />
-							<Route
-								path="/SignUp"
-								element={User ? <Home /> : <SignUpPage />}
-							/>
-						</Routes>
+			<div id="App">
+				{Loading ? (
+					<LoadingScreen />
+				) : (
+					<LoginContext.Provider value={(test, setUser)}>
+						<LoadingContext.Provider value={value}>
+							<Routes>
+								<Route path="/" element={User ? <Home /> : <LoginPage />} />
+								<Route
+									path="/SignUp"
+									element={User ? <Home /> : <SignUpPage />}
+								/>
+							</Routes>
+						</LoadingContext.Provider>
 					</LoginContext.Provider>
-				</div>
-			)}
+				)}
+			</div>
 		</BrowserRouter>
 	);
 }

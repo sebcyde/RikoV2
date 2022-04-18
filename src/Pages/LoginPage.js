@@ -5,6 +5,7 @@ import { useRef, useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { LoginContext } from '../Context/Login';
 import { Login } from '../Firebase';
+import { LoadingContext } from '../Context/SignUp';
 
 function LoginPage() {
 	const navigate = useNavigate();
@@ -12,16 +13,24 @@ function LoginPage() {
 	const [LoginEmail, setLoginEmail] = useState('');
 	const [LoginPassword, setLoginPassword] = useState('');
 
-	const { setLoading, setUser } = useContext(LoginContext);
+	const [LoginError, setLoginError] = useState(false);
+	const [ErrorMessage, setErrorMessage] = useState('false');
+
+	const { setUser } = useContext(LoginContext);
+	const { Loading, setLoading } = useContext(LoadingContext);
 
 	async function AppLogin() {
-		console.log('Log In Request Sent');
-		// setLoading(true);
-		Login(LoginEmail, LoginPassword);
-		console.log('User Log In Successful');
-		// setLoading(false);
-		// setUser(true);
-		navigate('/');
+		try {
+			await Login(LoginEmail, LoginPassword)
+				.then(() => {
+					navigate('/');
+				})
+				.then(() => {
+					console.log('User Log In Successful');
+				});
+		} catch (error) {
+			setErrorMessage(error);
+		}
 	}
 
 	return (
@@ -37,7 +46,8 @@ function LoginPage() {
 					>
 						<span id="LoginText">
 							<h1>Welcome Back</h1>
-							<p>Enter You Login Details</p>
+							<p>Sign In To You Riko Account</p>
+							{/* {LoginError && <p>{ErrorMessage}</p>} */}
 						</span>
 						<form id="LoginInputForm">
 							<TextInput
