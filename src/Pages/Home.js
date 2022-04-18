@@ -37,6 +37,7 @@ function Home() {
 					preventScrolling: true,
 				}}
 			>
+				<h1 id="NavbarTitle">Riko V2</h1>
 				<Link to="/SignUp" id="LogInCreateAnAccountButton">
 					Search
 				</Link>

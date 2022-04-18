@@ -12,18 +12,23 @@
   padding-top: 1em;
 }
 #HomeContainer .nav-wrapper {
-  background-color: rgb(140, 0, 0);
+  background-color: rgb(106, 0, 0);
 }
 #HomeContainer #mobile-nav {
   background-color: rgb(32, 32, 32);
   color: white;
   padding: 0px;
-  padding-top: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   height: 100%;
+}
+#HomeContainer #mobile-nav h1#sidenav-NavbarTitle {
+  text-align: center;
+  padding: 0.5em;
+  margin-top: 0px;
+  border-bottom: 1px solid white;
 }
 #HomeContainer #mobile-nav li {
   width: 100%;
@@ -34,7 +39,7 @@
   color: white;
   font-size: 30px;
 }
-#HomeContainer #mobile-nav li:nth-of-type(4) {
+#HomeContainer #mobile-nav li:nth-of-type(5) {
   margin-top: auto;
 }
 #HomeContainer #mobile-nav #sidenav-SignOutButton {
