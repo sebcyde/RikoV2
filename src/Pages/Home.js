@@ -5,7 +5,7 @@ import { Navbar, Icon, NavItem, Button } from 'react-materialize';
 import '../StyleSheets/Home.css';
 import Profile from './Profile';
 import Dashboard from './Dashboard';
-import Search from './Search';
+import Search from './Search/Search';
 import Messages from './Messages';
 
 function Home() {

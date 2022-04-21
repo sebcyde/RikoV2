@@ -1,22 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Preloader } from 'react-materialize';
-import RingLoader from 'react-spinners/ClipLoader';
-import { css } from '@emotion/react';
-import '../StyleSheets/Search.css';
+import '../../StyleSheets/Search.css';
+import LoadingScreen from '../../LoadingScreen';
 
 function Search() {
-	const RedditPosts = [];
+	// const RedditPosts = [];
 	const [Retrieving, setRetrieving] = useState(true);
-
-	let Red = '#202020';
-
-	const override = css`
-		display: block;
-		margin: 0 auto;
-		border-color: red;
-		align-self: center;
-	`;
 
 	// useEffect(() => {
 	// 	setRetrieving(true);
@@ -30,14 +19,15 @@ function Search() {
 	// 	setRetrieving(false);
 	// }, []);
 
+	useEffect(() => {
+		setTimeout(() => {
+			setRetrieving(false);
+		}, 3000);
+	}, []);
+
 	return (
 		<div id="SearchContainer">
-			{/* {Retrieving ? (
-				<ClipLoader color={Red} loading={Retrieving} size={150} />
-			) : (
-				{ RedditPosts }
-			)} */}
-			<RingLoader loading={Retrieving} size={150} id="RetrievingSpinner" />
+			{Retrieving ? <LoadingScreen /> : <h2>Search</h2>}
 		</div>
 	);
 }
