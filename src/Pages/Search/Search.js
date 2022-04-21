@@ -4,25 +4,37 @@ import '../../StyleSheets/Search.css';
 import LoadingScreen from '../../LoadingScreen';
 
 function Search() {
-	// const RedditPosts = [];
+	const RedditPosts = [];
+	const AllPosts = [];
 	const [Retrieving, setRetrieving] = useState(true);
 
-	// useEffect(() => {
-	// 	setRetrieving(true);
-	// 	axios.get('https://www.reddit.com/r/all.json').then((response) => {
-	// 		console.log(response.data.data.children);
-	// 		response.map((Post) => {
-	// 			RedditPosts.push(Post);
-	// 			return RedditPosts;
-	// 		});
-	// 	});
-	// 	setRetrieving(false);
-	// }, []);
-
 	useEffect(() => {
-		setTimeout(() => {
-			setRetrieving(false);
-		}, 3000);
+		axios
+			.get('https://www.reddit.com/r/all.json')
+			.then((response) => {
+				console.log(response.data.data.children);
+				response.data.data.children.forEach((element) => {
+					RedditPosts.push(element.data);
+				});
+			})
+			.then(
+				RedditPosts.forEach((RPosts) => {
+					console.log(RPosts);
+					console.log(RPosts.author);
+					console.log(RPosts.subreddit_name_prefixed);
+					console.log(RPosts.title);
+					AllPosts.push(
+						<div className="Post">
+							<h3 className="Author">{RPosts.author}</h3>
+							<h4 className="Subreddit">{RPosts.subreddit_name_prefixed}</h4>
+							<p className="Text">{RPosts.title}</p>
+						</div>
+					);
+				})
+			);
+		console.log(RedditPosts);
+		console.log(AllPosts);
+		setRetrieving(false);
 	}, []);
 
 	return (

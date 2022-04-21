@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { BrowserRouter, Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import 'materialize-css/dist/css/materialize.min.css';
@@ -16,12 +16,13 @@ function App() {
 	const auth = getAuth();
 
 	const [User, setUser] = useState(false);
-	const [Loading, setLoading] = useState(false);
+	const [Loading, setLoading] = useState(true);
 	const value = { Loading, setLoading };
 
 	auth.onAuthStateChanged(function (user) {
 		if (user) {
 			setUser(true);
+			setLoading(false);
 		} else {
 			// No user is signed in.
 			setUser(false);

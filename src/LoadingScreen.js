@@ -5,9 +5,11 @@ import { Col, Preloader } from 'react-materialize';
 import { RingLoader, FadeLoader } from 'react-spinners';
 
 function LoadingScreen() {
+	let color = 'rgb(106, 0, 0)';
+
 	return (
 		<div id="LoadingScreenContainer" align="center">
-			{RingLoader}
+			<FadeLoader id="LoadingCircle" color={color} />
 		</div>
 	);
 }
