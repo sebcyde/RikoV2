@@ -7,12 +7,13 @@ function Search() {
 	const RedditPosts = [];
 	const AllPosts = [];
 	const [Retrieving, setRetrieving] = useState(true);
+	const [first, setfirst] = useState();
 
 	useEffect(() => {
 		axios
 			.get('https://www.reddit.com/r/all.json')
 			.then((response) => {
-				console.log(response.data.data.children);
+				// console.log(response.data.data.children);
 				response.data.data.children.forEach((element) => {
 					RedditPosts.push(element.data);
 				});
@@ -20,33 +21,57 @@ function Search() {
 			.then(() => {
 				RedditPosts.map((RPosts, i) => {
 					AllPosts.push(
-						<div className="Post" key={i}>
-							<h3 className="Author">{RPosts.author}</h3>
+						<div div className="Post" key={i}>
+							<h3 h3 className="Author">
+								{RPosts.author}
+							</h3>
 							<h4 className="Subreddit">{RPosts.subreddit_name_prefixed}</h4>
 							<p className="Text">{RPosts.title}</p>
 						</div>
 					);
 				});
+				setfirst(
+					RedditPosts.map(({ author, subreddit_name_prefixed, title, id }) => {
+						<div className="Post" key={id}>
+							<h3 className="Author">{author}</h3>
+							<h4 className="Subreddit">{subreddit_name_prefixed}</h4>
+							<p className="Text">{title}</p>
+						</div>;
+					})
+				);
+			})
+			.then(() => {
 				setRetrieving(false);
+				console.log(first);
+				console.log(RedditPosts);
+				console.log(AllPosts);
 			});
-		console.log(RedditPosts);
-		console.log(AllPosts);
 	}, []);
 
 	return (
-		<div id="SearchContainer">
-			{/* {Retrieving ? <LoadingScreen /> : [RedditPosts]} */}
-			{RedditPosts.map((RPosts, i) => {
-				return (
-					<div className="Post" key={i}>
-						<h3 className="Author">{RPosts.author}</h3>
-						<h4 className="Subreddit">{RPosts.subreddit_name_prefixed}</h4>
-						<p className="Text">{RPosts.title}</p>
-					</div>
-				);
-			})}
+		<div id="SearchContainer" align="center">
+			{Retrieving ? <LoadingScreen /> : <h2>Search</h2>}
 		</div>
 	);
 }
 
 export default Search;
+
+{
+	/* {Retrieving ? null : <h2>Search</h2>}
+			{Retrieving ? <LoadingScreen /> : { first }} */
+}
+{
+	/* {RedditPosts.map(({ author, subreddit_name_prefixed, title }) => {
+				<>
+					<h3 className="Author">{author}</h3>
+					<h4 className="Subreddit">{subreddit_name_prefixed}</h4>
+					<p className="Text">{title}</p>
+				</>;
+			})} */
+}
+{
+	/* {RedditPosts.map((Posts) => {
+				return Posts;
+			})} */
+}

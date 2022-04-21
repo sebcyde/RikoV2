@@ -4,14 +4,14 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Navbar, Icon, NavItem, Button } from 'react-materialize';
 import '../StyleSheets/Home.css';
 import Profile from './Profile';
-import Dashboard from './Dashboard';
+import Dashboard from './Dashboard/Dashboard';
 import Search from './Search/Search';
 import Messages from './Messages';
 
 function Home() {
 	const navigate = useNavigate();
 
-	const [PageLoaded, setPageLoaded] = useState(<Profile />);
+	const [PageLoaded, setPageLoaded] = useState(<Dashboard />);
 
 	async function AppSignOut() {
 		// setLoading(true);
@@ -25,7 +25,7 @@ function Home() {
 			});
 	}
 
-	function HomePageSearch(params) {
+	function HomePageSearch() {
 		setPageLoaded(<Search />);
 	}
 
@@ -37,7 +37,7 @@ function Home() {
 		setPageLoaded(<Profile />);
 	}
 
-	function HomePageMessages(params) {
+	function HomePageMessages() {
 		setPageLoaded(<Messages />);
 	}
 

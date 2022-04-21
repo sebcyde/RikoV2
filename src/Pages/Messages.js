@@ -2,8 +2,8 @@ import React from 'react';
 
 function Messages() {
 	return (
-		<div>
-			<h1>Messages</h1>>
+		<div align="center">
+			<h1>Messages</h1>
 		</div>
 	);
 }

@@ -4,7 +4,7 @@ import '../StyleSheets/Profile.css';
 
 function Profile() {
 	return (
-		<div id="ProfileContainer">
+		<div id="ProfileContainer" align='center'>
 			<h1>Profile</h1>
 		</div>
 	);
