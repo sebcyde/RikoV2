@@ -17,29 +17,34 @@ function Search() {
 					RedditPosts.push(element.data);
 				});
 			})
-			.then(
-				RedditPosts.forEach((RPosts) => {
-					console.log(RPosts);
-					console.log(RPosts.author);
-					console.log(RPosts.subreddit_name_prefixed);
-					console.log(RPosts.title);
+			.then(() => {
+				RedditPosts.map((RPosts, i) => {
 					AllPosts.push(
-						<div className="Post">
+						<div className="Post" key={i}>
 							<h3 className="Author">{RPosts.author}</h3>
 							<h4 className="Subreddit">{RPosts.subreddit_name_prefixed}</h4>
 							<p className="Text">{RPosts.title}</p>
 						</div>
 					);
-				})
-			);
+				});
+				setRetrieving(false);
+			});
 		console.log(RedditPosts);
 		console.log(AllPosts);
-		setRetrieving(false);
 	}, []);
 
 	return (
 		<div id="SearchContainer">
-			{Retrieving ? <LoadingScreen /> : <h2>Search</h2>}
+			{/* {Retrieving ? <LoadingScreen /> : [RedditPosts]} */}
+			{RedditPosts.map((RPosts, i) => {
+				return (
+					<div className="Post" key={i}>
+						<h3 className="Author">{RPosts.author}</h3>
+						<h4 className="Subreddit">{RPosts.subreddit_name_prefixed}</h4>
+						<p className="Text">{RPosts.title}</p>
+					</div>
+				);
+			})}
 		</div>
 	);
 }

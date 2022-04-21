@@ -75,20 +75,20 @@ function Home() {
 					href=""
 					onClick={(event) => {
 						event.preventDefault();
-						HomePageDashboard();
+						HomePageProfile();
 					}}
 				>
-					Dashboard
+					My Profile
 				</NavItem>
 
 				<NavItem
 					href=""
 					onClick={(event) => {
 						event.preventDefault();
-						HomePageProfile();
+						HomePageDashboard();
 					}}
 				>
-					My Profile
+					Dashboard
 				</NavItem>
 
 				<NavItem
