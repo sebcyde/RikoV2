@@ -1,0 +1,75 @@
+#ModalContainer {
+  height: -webkit-fit-content !important;
+  height: -moz-fit-content !important;
+  height: fit-content !important;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: center;
+}
+#ModalContainer #DisplayNameModal {
+  height: -webkit-fit-content !important;
+  height: -moz-fit-content !important;
+  height: fit-content !important;
+}
+
+div.modal {
+  font-family: "Genos", sans-serif;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-top: 10em;
+  background-color: rgb(106, 0, 0);
+  border-radius: 10px;
+  text-align: center;
+}
+div.modal .modal-dialog {
+  margin: 5px;
+}
+div.modal .modal-dialog .modal-content {
+  padding: 1em;
+}
+div.modal .modal-header {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0px;
+  padding-right: 0px;
+  border-bottom: none;
+}
+div.modal .modal-header .modal-title {
+  font-size: 40px;
+}
+div.modal .modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly !important;
+  height: 170px !important;
+  border-bottom: none !important;
+  padding-top: 0px;
+}
+div.modal .modal-body p {
+  padding: 0px !important;
+  font-size: 25px;
+  width: 100%;
+  line-height: 25px;
+}
+div.modal .modal-body input {
+  font-family: "Genos", sans-serif;
+  font-size: 23px !important;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.218);
+  margin-bottom: 10px;
+}
+div.modal .modal-body input:focus {
+  border-bottom: 1px solid black !important;
+  box-shadow: none !important;
+}
+div.modal .modal-footer button {
+  margin-top: 12px !important;
+  width: 40%;
+  background-color: rgb(106, 0, 0);
+}/*# sourceMappingURL=SetDisplayName.css.map */

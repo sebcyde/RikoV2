@@ -56,22 +56,3 @@ function Search() {
 }
 
 export default Search;
-
-{
-	/* {Retrieving ? null : <h2>Search</h2>}
-			{Retrieving ? <LoadingScreen /> : { first }} */
-}
-{
-	/* {RedditPosts.map(({ author, subreddit_name_prefixed, title }) => {
-				<>
-					<h3 className="Author">{author}</h3>
-					<h4 className="Subreddit">{subreddit_name_prefixed}</h4>
-					<p className="Text">{title}</p>
-				</>;
-			})} */
-}
-{
-	/* {RedditPosts.map((Posts) => {
-				return Posts;
-			})} */
-}

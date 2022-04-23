@@ -3,6 +3,7 @@ import { BrowserRouter, Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import LoginPage from './Pages/LoginPage';
 import LoadingScreen from './LoadingScreen';
 import Home from './Pages/Home';
@@ -28,6 +29,14 @@ function App() {
 			setUser(false);
 		}
 	});
+
+	useEffect((user) => {
+		setTimeout(() => {
+			if (!user) {
+				setLoading(false);
+			}
+		}, 1000);
+	}, []);
 
 	let test = 'test';
 

@@ -8,7 +8,8 @@ import { useNavigate, Link } from 'react-router-dom';
 
 function SignUpPage() {
 	const navigate = useNavigate();
-
+	const [SignUpName, setSignUpName] = useState('');
+	const [SignUpUsername, setSignUpUsername] = useState('');
 	const [SignUpEmail, setSignUpEmail] = useState('');
 	const [SignUpPassword, setSignUpPassword] = useState('');
 
@@ -17,7 +18,7 @@ function SignUpPage() {
 
 	async function AppSignUp() {
 		// setLoading(true);
-		await SignUp(SignUpEmail, SignUpPassword)
+		await SignUp(SignUpEmail, SignUpPassword, SignUpName, SignUpUsername)
 			.then(() => {
 				navigate('/');
 			})
@@ -43,6 +44,23 @@ function SignUpPage() {
 							<p>Create An Account Below</p>
 						</span>
 						<form id="SignUpInputForm">
+							<TextInput
+								id="SignUpNameInput"
+								placeholder="First Name"
+								type="text"
+								onChange={(event) => {
+									setSignUpName(event.target.value);
+								}}
+							/>
+							<TextInput
+								id="SignUpUsernameInput"
+								placeholder="Username"
+								type="text"
+								onChange={(event) => {
+									setSignUpUsername(event.target.value);
+								}}
+							/>
+
 							<TextInput
 								id="SignUpEmailInput"
 								placeholder="Email"

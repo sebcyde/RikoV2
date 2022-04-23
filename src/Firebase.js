@@ -1,14 +1,19 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import {
+	doc,
+	setDoc,
+	collection,
+	addDoc,
+	getFirestore,
+} from 'firebase/firestore';
+import {
 	getAuth,
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
 	signOut,
 	onAuthStateChanged,
 } from 'firebase/auth';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -22,7 +27,9 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
+// Initialize Firestore
+export const db = getFirestore(app);
+// export const ref = firebase.db.collection('Users');
 const auth = getAuth();
 
 export async function Login(email, password) {
@@ -43,14 +50,27 @@ export async function Login(email, password) {
 	}
 }
 
-export async function SignUp(email, password) {
+export async function SignUp(email, password, name, username) {
 	await createUserWithEmailAndPassword(auth, email, password)
 		.then((userCredential) => {
 			// Signed in
 			const user = userCredential.user;
 			console.log(user);
-			// ...
 		})
+		// .then((name, username) => {
+		// 	let newDataObject = {
+		// 		name: `${name}`,
+		// 		username: `${username}`,
+		// 		interests: [],
+		// 	};
+
+		// 	ref
+		// 		.doc()
+		// 		.set(newDataObject)
+		// 		.catch((error) => {
+		// 			alert(error);
+		// 		});
+		// })
 		.catch((error) => {
 			const errorMessage = error.message;
 			console.log(errorMessage);
@@ -63,7 +83,6 @@ export async function SignOut() {
 	await signOut(auth)
 		.then(() => {
 			// Sign-out successful.
-			console.log('Signed Out Successfully');
 		})
 		.catch((error) => {
 			// An error happened.
