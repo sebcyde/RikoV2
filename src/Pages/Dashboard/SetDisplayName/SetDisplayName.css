@@ -57,6 +57,13 @@ div.modal .modal-body p {
   width: 100%;
   line-height: 25px;
 }
+div.modal .modal-body #ErrorText {
+  color: rgb(168, 0, 0);
+  padding: 0px !important;
+  font-size: 25px;
+  width: 100%;
+  line-height: 25px;
+}
 div.modal .modal-body input {
   font-family: "Genos", sans-serif;
   font-size: 23px !important;

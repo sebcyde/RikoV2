@@ -4,8 +4,9 @@ import { Button, Modal, Form } from 'react-bootstrap';
 import './SetDisplayName.css';
 
 function SetDisplayName() {
-	const [UsernameInputField, setUsernameInputField] = useState('');
 	let Auth = getAuth();
+	const [UsernameInputField, setUsernameInputField] = useState('');
+	const [ShowError, setShowError] = useState(false);
 	const [OpenModal, setOpenModal] = useState(false);
 
 	useEffect(() => {
@@ -15,7 +16,11 @@ function SetDisplayName() {
 	}, []);
 
 	const handleClose = () => {
-		setOpenModal(false);
+		if (UsernameInputField != '') {
+			setOpenModal(false);
+		} else {
+			setShowError(true);
+		}
 	};
 
 	return (
@@ -25,8 +30,19 @@ function SetDisplayName() {
 					<Modal.Title>Welcome to Riko!</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					<p>Create a new username</p>
-					<Form.Control type="email" placeholder="Enter Username" />
+					{ShowError ? (
+						<p id="ErrorText">Please Enter A Username</p>
+					) : (
+						<p>Create a new username</p>
+					)}
+
+					<Form.Control
+						type="email"
+						placeholder="Enter Username"
+						onChange={(e) => {
+							setUsernameInputField(e.target.value);
+						}}
+					/>
 				</Modal.Body>
 				<Modal.Footer>
 					<Button onClick={handleClose}>Save</Button>
