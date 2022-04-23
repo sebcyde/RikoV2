@@ -8,8 +8,7 @@ import { useNavigate, Link } from 'react-router-dom';
 
 function SignUpPage() {
 	const navigate = useNavigate();
-	const [SignUpName, setSignUpName] = useState('');
-	const [SignUpUsername, setSignUpUsername] = useState('');
+	const [SignUpUsername, setSignUpUsername] = useState();
 	const [SignUpEmail, setSignUpEmail] = useState('');
 	const [SignUpPassword, setSignUpPassword] = useState('');
 
@@ -17,8 +16,7 @@ function SignUpPage() {
 	const { Loading, setLoading } = useContext(LoginContext);
 
 	async function AppSignUp() {
-		// setLoading(true);
-		await SignUp(SignUpEmail, SignUpPassword, SignUpName, SignUpUsername)
+		await SignUp(SignUpEmail, SignUpPassword, SignUpUsername)
 			.then(() => {
 				navigate('/');
 			})
@@ -44,23 +42,16 @@ function SignUpPage() {
 							<p>Create An Account Below</p>
 						</span>
 						<form id="SignUpInputForm">
-							<TextInput
-								id="SignUpNameInput"
-								placeholder="First Name"
-								type="text"
-								onChange={(event) => {
-									setSignUpName(event.target.value);
-								}}
-							/>
-							<TextInput
+							{/* Username input doesnt register, continually opens 'no username'
+							modal */}
+							{/* <TextInput
 								id="SignUpUsernameInput"
 								placeholder="Username"
 								type="text"
 								onChange={(event) => {
 									setSignUpUsername(event.target.value);
 								}}
-							/>
-
+							/> */}
 							<TextInput
 								id="SignUpEmailInput"
 								placeholder="Email"
@@ -69,7 +60,6 @@ function SignUpPage() {
 									setSignUpEmail(event.target.value);
 								}}
 							/>
-
 							<TextInput
 								placeholder="Password"
 								type="password"
@@ -78,7 +68,6 @@ function SignUpPage() {
 								}}
 								id="SignUpPasswordInput"
 							/>
-
 							<Button
 								type="submit"
 								node="button"
@@ -92,7 +81,7 @@ function SignUpPage() {
 								Sign Up
 							</Button>
 							<Link to="/" id="CreateAnAccountLogInButton">
-								Already Have An Account
+								Already Have An Account?
 							</Link>
 						</form>
 					</Card>

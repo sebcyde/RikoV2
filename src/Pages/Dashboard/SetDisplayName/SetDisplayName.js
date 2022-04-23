@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { onAuthStateChanged, getAuth } from 'firebase/auth';
+import { onAuthStateChanged, getAuth, updateProfile } from 'firebase/auth';
 import { Button, Modal, Form } from 'react-bootstrap';
 import './SetDisplayName.css';
 
 function SetDisplayName() {
 	let Auth = getAuth();
+	let User = Auth.currentUser;
 	const [UsernameInputField, setUsernameInputField] = useState('');
 	const [ShowError, setShowError] = useState(false);
 	const [OpenModal, setOpenModal] = useState(false);
@@ -12,12 +13,22 @@ function SetDisplayName() {
 	useEffect(() => {
 		setTimeout(() => {
 			setOpenModal(true);
-		}, 2000);
+		}, 500);
 	}, []);
 
 	const handleClose = () => {
-		if (UsernameInputField != '') {
-			setOpenModal(false);
+		if (UsernameInputField.length > 0) {
+			updateProfile(User, {
+				displayName: UsernameInputField,
+			})
+				.then(() => {
+					console.log('User Display Name Updated Successfully');
+					console.log(User);
+					setOpenModal(false);
+				})
+				.catch((error) => {
+					alert(error);
+				});
 		} else {
 			setShowError(true);
 		}

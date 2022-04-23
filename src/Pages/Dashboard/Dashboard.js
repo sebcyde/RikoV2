@@ -11,7 +11,6 @@ function Dashboard() {
 	const [Dash, setDash] = useState();
 
 	useEffect(() => {
-		console.log(Auth.currentUser);
 		console.log(user);
 	}, []);
 
@@ -31,7 +30,7 @@ function Dashboard() {
 
 	return (
 		<div align="center">
-			{user.displayName == null ? <SetDisplayName /> : null}
+			{user.displayName === null ? <SetDisplayName /> : null}
 			<h2>Dashboard</h2>
 		</div>
 	);

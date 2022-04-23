@@ -13,6 +13,7 @@ import {
 	signInWithEmailAndPassword,
 	signOut,
 	onAuthStateChanged,
+	updateProfile,
 } from 'firebase/auth';
 
 // Your web app's Firebase configuration
@@ -50,11 +51,14 @@ export async function Login(email, password) {
 	}
 }
 
-export async function SignUp(email, password, name, username) {
+export async function SignUp(email, password, username) {
 	await createUserWithEmailAndPassword(auth, email, password)
 		.then((userCredential) => {
 			// Signed in
 			const user = userCredential.user;
+			updateProfile(user, {
+				displayName: username,
+			});
 			console.log(user);
 		})
 		// .then((name, username) => {
