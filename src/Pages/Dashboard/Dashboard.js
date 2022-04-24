@@ -10,10 +10,6 @@ function Dashboard() {
 	let UserInterests = [];
 	const [Dash, setDash] = useState();
 
-	useEffect(() => {
-		console.log(user);
-	}, []);
-
 	// if (UserInterests.length === 0) {
 	// 	setAddInterests(
 	// 		<div id="EmptyInterestContainer">

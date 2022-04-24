@@ -60,7 +60,8 @@ export async function SignUp(email, password, username) {
 			const user = userCredential.user;
 
 			setDoc(doc(db, 'Users', email), {
-				email: email,
+				Email: email,
+				Interests: [],
 			});
 
 			console.log(user);
