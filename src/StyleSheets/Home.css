@@ -5,6 +5,9 @@
   height: 100%;
   background-color: rgb(32, 32, 32);
   color: white;
+  overflow: hidden;
+  overflow-y: scroll;
+  background-attachment: fixed !important;
 }
 #HomeContainer #HomeTitle {
   text-align: center;
@@ -13,6 +16,7 @@
 }
 #HomeContainer .nav-wrapper {
   background-color: rgb(106, 0, 0);
+  box-shadow: 5px 5px 5px black;
 }
 #HomeContainer #mobile-nav {
   background-color: rgb(32, 32, 32);

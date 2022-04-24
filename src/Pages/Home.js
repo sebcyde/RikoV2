@@ -47,6 +47,7 @@ function Home() {
 				alignLinks="right"
 				id="mobile-nav"
 				menuIcon={<Icon>menu</Icon>}
+				fixed={true}
 				options={{
 					draggable: true,
 					edge: 'left',

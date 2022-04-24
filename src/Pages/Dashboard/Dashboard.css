@@ -1,0 +1,34 @@
+#DashboardContainer {
+  overflow: hidden;
+  overflow-y: scroll;
+  background-attachment: fixed !important;
+}
+#DashboardContainer iframe article {
+  padding: 0px !important;
+}
+#DashboardContainer .RedditPost {
+  width: 95%;
+  border: 2px solid rgb(106, 0, 0);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+#DashboardContainer .RedditPost .RedditPostHeader {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: rgb(106, 0, 0);
+}
+#DashboardContainer .RedditPost .RedditPostHeader h4 {
+  margin: 0px;
+  padding: 10px;
+  font-size: 25px;
+}/*# sourceMappingURL=Dashboard.css.map */

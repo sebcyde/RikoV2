@@ -15,7 +15,6 @@ import SignUpPage from './Pages/SignUpPage';
 
 function App() {
 	const auth = getAuth();
-
 	const [User, setUser] = useState(false);
 	const [Loading, setLoading] = useState(true);
 	const value = { Loading, setLoading };
