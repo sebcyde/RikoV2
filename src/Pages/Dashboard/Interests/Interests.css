@@ -1,0 +1,18 @@
+#InterestsContainer {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+}
+#InterestsContainer #SearchTopLevelRow {
+  margin-bottom: 4em;
+}
+#InterestsContainer .col.s1.teal.white-text {
+  background-color: rgba(0, 0, 0, 0) !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+#InterestsContainer .col.s1.teal.white-text .InterestButton {
+  width: 20px;
+}/*# sourceMappingURL=Interests.css.map */

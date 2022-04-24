@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../../StyleSheets/Search.css';
 import LoadingScreen from '../../LoadingScreen';
+import Interests from '../Dashboard/Interests/Interests';
 
 function Search() {
 	const RedditPosts = [];
@@ -51,6 +52,7 @@ function Search() {
 	return (
 		<div id="SearchContainer" align="center">
 			{Retrieving ? <LoadingScreen /> : <h2>Search</h2>}
+			<Interests />
 		</div>
 	);
 }
