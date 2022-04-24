@@ -32,6 +32,8 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 // export const ref = firebase.db.collection('Users');
 const auth = getAuth();
+// Get the Database service for a specific app
+// let Database = db.database(app);
 
 export async function Login(email, password) {
 	try {
@@ -56,9 +58,11 @@ export async function SignUp(email, password, username) {
 		.then((userCredential) => {
 			// Signed in
 			const user = userCredential.user;
-			updateProfile(user, {
-				displayName: username,
+
+			setDoc(doc(db, 'Users', email), {
+				email: email,
 			});
+
 			console.log(user);
 		})
 		// .then((name, username) => {
