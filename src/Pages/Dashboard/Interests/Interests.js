@@ -6,33 +6,113 @@ import { db } from '../../../Firebase';
 import './Interests.css';
 
 function Interests() {
-	const InterestList = [];
+	const AddToInterestList = [];
+	const [ButtonSuggestion, setButtonSuggestion] = useState('');
+
+	const AddToInterests = (NewInterest) => {};
 
 	return (
 		<div id="InterestsContainer">
-			<div id="SearchTopLevelRow">
-				<p>Enter an interest of select from the ones below</p>
-				<TextInput id="TextInput-25" placeholder="Search" />
-			</div>
 			<div id="DefaultInterestButtonsContainer">
 				<Row>
 					<Col className="teal white-text" s={1}>
-						<Button node="button" waves="light" className="InterestButton">
+						<Button
+							node="button"
+							waves="light"
+							className="InterestButton InterestButton1"
+							onClick={() => {
+								setButtonSuggestion('Anime');
+								AddToInterests();
+							}}
+						>
+							Anime
+						</Button>
+					</Col>
+					<Col className="teal white-text" s={1}>
+						<Button
+							node="button"
+							waves="light"
+							className="InterestButton InterestButton2"
+							onClick={() => {
+								setButtonSuggestion('Sports');
+								AddToInterests();
+							}}
+						>
+							Sports
+						</Button>
+					</Col>
+					<Col className="teal white-text" s={1}>
+						<Button
+							node="button"
+							waves="light"
+							className="InterestButton InterestButton3"
+							onClick={() => {
+								setButtonSuggestion('Music');
+								AddToInterests();
+							}}
+						>
+							Music
+						</Button>
+					</Col>
+				</Row>
+				<Row>
+					<Col className="teal white-text" s={1}>
+						<Button
+							node="button"
+							waves="light"
+							className="InterestButton InterestButton4"
+							onClick={() => {
+								setButtonSuggestion('Politics');
+								AddToInterests();
+							}}
+						>
+							Politics
+						</Button>
+					</Col>
+					<Col className="teal white-text" s={1}>
+						<Button
+							node="button"
+							waves="light"
+							className="InterestButton InterestButton5"
+						>
 							button
 						</Button>
 					</Col>
 					<Col className="teal white-text" s={1}>
-						<Button node="button" waves="light" className="InterestButton">
+						<Button
+							node="button"
+							waves="light"
+							className="InterestButton InterestButton6"
+						>
+							button
+						</Button>
+					</Col>
+				</Row>
+				<Row>
+					<Col className="teal white-text" s={1}>
+						<Button
+							node="button"
+							waves="light"
+							className="InterestButton InterestButton7"
+						>
 							button
 						</Button>
 					</Col>
 					<Col className="teal white-text" s={1}>
-						<Button node="button" waves="light" className="InterestButton">
+						<Button
+							node="button"
+							waves="light"
+							className="InterestButton InterestButton8"
+						>
 							button
 						</Button>
 					</Col>
 					<Col className="teal white-text" s={1}>
-						<Button node="button" waves="light" className="InterestButton">
+						<Button
+							node="button"
+							waves="light"
+							className="InterestButton InterestButton9"
+						>
 							button
 						</Button>
 					</Col>

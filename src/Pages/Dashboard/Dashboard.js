@@ -54,6 +54,7 @@ function Dashboard() {
 	return (
 		<div align="center" id="DashboardContainer">
 			{user.displayName === null ? <SetDisplayName /> : null}
+			<h2>Dashboard</h2>
 			{FinalInterestList === null ? (
 				<LoadingScreen />
 			) : (
