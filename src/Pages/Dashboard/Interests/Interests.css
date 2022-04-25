@@ -2,7 +2,10 @@
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  height: 100%;
+  height: -webkit-fit-content !important;
+  height: -moz-fit-content !important;
+  height: fit-content !important;
+  overflow-x: hidden;
 }
 #InterestsContainer .row {
   margin-bottom: 2em;

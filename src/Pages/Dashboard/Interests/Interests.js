@@ -9,7 +9,9 @@ function Interests() {
 	const AddToInterestList = [];
 	const [ButtonSuggestion, setButtonSuggestion] = useState('');
 
-	const AddToInterests = (NewInterest) => {};
+	const AddToInterests = (NewInterest) => {
+		AddToInterestList.push(NewInterest);
+	};
 
 	return (
 		<div id="InterestsContainer">
@@ -22,7 +24,7 @@ function Interests() {
 							className="InterestButton InterestButton1"
 							onClick={() => {
 								setButtonSuggestion('Anime');
-								AddToInterests();
+								AddToInterests('Anime');
 							}}
 						>
 							Anime
@@ -35,7 +37,7 @@ function Interests() {
 							className="InterestButton InterestButton2"
 							onClick={() => {
 								setButtonSuggestion('Sports');
-								AddToInterests();
+								AddToInterests('Sports');
 							}}
 						>
 							Sports
@@ -48,7 +50,7 @@ function Interests() {
 							className="InterestButton InterestButton3"
 							onClick={() => {
 								setButtonSuggestion('Music');
-								AddToInterests();
+								AddToInterests('Music');
 							}}
 						>
 							Music
@@ -63,7 +65,7 @@ function Interests() {
 							className="InterestButton InterestButton4"
 							onClick={() => {
 								setButtonSuggestion('Politics');
-								AddToInterests();
+								AddToInterests('Politics');
 							}}
 						>
 							Politics
@@ -74,8 +76,12 @@ function Interests() {
 							node="button"
 							waves="light"
 							className="InterestButton InterestButton5"
+							onClick={() => {
+								setButtonSuggestion('Movies');
+								AddToInterests('Movies');
+							}}
 						>
-							button
+							Movies
 						</Button>
 					</Col>
 					<Col className="teal white-text" s={1}>
@@ -83,8 +89,12 @@ function Interests() {
 							node="button"
 							waves="light"
 							className="InterestButton InterestButton6"
+							onClick={() => {
+								setButtonSuggestion('News');
+								AddToInterests('News');
+							}}
 						>
-							button
+							News
 						</Button>
 					</Col>
 				</Row>
@@ -94,8 +104,12 @@ function Interests() {
 							node="button"
 							waves="light"
 							className="InterestButton InterestButton7"
+							onClick={() => {
+								setButtonSuggestion('Celebs');
+								AddToInterests('Celebs');
+							}}
 						>
-							button
+							Celebs
 						</Button>
 					</Col>
 					<Col className="teal white-text" s={1}>
@@ -103,8 +117,12 @@ function Interests() {
 							node="button"
 							waves="light"
 							className="InterestButton InterestButton8"
+							onClick={() => {
+								setButtonSuggestion('Fashion');
+								AddToInterests('Fashion');
+							}}
 						>
-							button
+							Fashion
 						</Button>
 					</Col>
 					<Col className="teal white-text" s={1}>
@@ -112,8 +130,12 @@ function Interests() {
 							node="button"
 							waves="light"
 							className="InterestButton InterestButton9"
+							onClick={() => {
+								setButtonSuggestion('Houses');
+								AddToInterests('Houses');
+							}}
 						>
-							button
+							Houses
 						</Button>
 					</Col>
 				</Row>
