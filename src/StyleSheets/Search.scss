@@ -88,4 +88,28 @@
 		width: 60px !important;
 		height: 60px !important;
 	}
+
+	.Unfollowed,
+	.Followed {
+		font-size: 20px;
+		color: white;
+		width: 70%;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0.5em;
+		height: fit-content;
+		margin-bottom: 1em;
+		margin-top: 0.6em;
+		box-shadow: 5px 5px 5px black;
+		border-radius: 10px;
+		border: 1px solid white;
+	}
+
+	.Unfollowed {
+		background-color: black;
+	}
+
+	.Followed {
+		background-color: cornflowerblue;
+	}
 }

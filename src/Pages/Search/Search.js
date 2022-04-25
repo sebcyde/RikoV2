@@ -14,6 +14,14 @@ function Search() {
 	const [BTT, setBTT] = useState(null);
 	const SearchInput = useRef(null);
 	const [BTTButton, setBTTButton] = useState(false);
+	const [Following, setFollowing] = useState(null);
+	const [YN, setYN] = useState('Followed');
+
+	const Change = () => {
+		console.log('clicked');
+		setFollowing(`Unfollow ${InterestResults}`);
+		YN === 'Unfollowed' ? setYN('Followed') : setYN('Unfollowed');
+	};
 
 	const Top = () => {
 		document
@@ -37,6 +45,10 @@ function Search() {
 			? setBTTButton(false)
 			: setBTTButton(true);
 	};
+
+	function insertAt(array, index, elements) {
+		array.splice(index, 0, elements);
+	}
 
 	useEffect(() => {
 		if (!InterestResults == null || !InterestResults == '') {
@@ -68,6 +80,7 @@ function Search() {
 							</div>
 						);
 					});
+
 					setBTT(
 						<Button
 							className="red"
@@ -79,13 +92,28 @@ function Search() {
 							onClick={Top}
 						/>
 					);
-					setfirst(AllPosts);
+
+					insertAt(
+						AllPosts,
+						11,
+						<>
+							{
+								<Button
+									node="button"
+									waves="light"
+									onClick={Change}
+									className={YN}
+								>
+									{Following}
+								</Button>
+							}
+						</>
+					);
 				})
 				.then(() => {
+					setfirst(AllPosts);
+					setFollowing(`Follow ${InterestResults}`);
 					setRetrieving(false);
-					console.log(first);
-					console.log(RedditPosts);
-					console.log(AllPosts);
 				});
 		} else {
 			setTimeout(() => {

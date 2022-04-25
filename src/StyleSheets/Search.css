@@ -82,4 +82,27 @@
   right: 30px;
   width: 60px !important;
   height: 60px !important;
+}
+#SearchContainer .Unfollowed,
+#SearchContainer .Followed {
+  font-size: 20px;
+  color: white;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5em;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-bottom: 1em;
+  margin-top: 0.6em;
+  box-shadow: 5px 5px 5px black;
+  border-radius: 10px;
+  border: 1px solid white;
+}
+#SearchContainer .Unfollowed {
+  background-color: black;
+}
+#SearchContainer .Followed {
+  background-color: cornflowerblue;
 }/*# sourceMappingURL=Search.css.map */
