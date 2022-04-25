@@ -14,6 +14,27 @@ function Search() {
 	const [BTT, setBTT] = useState(null);
 	const SearchInput = useRef(null);
 
+	const Top = () => {
+		document
+			.getElementById('SearchContainer')
+			.scrollTo({ top: 0, behavior: 'smooth' });
+	};
+
+	function isInViewport(element) {
+		const rect = element.getBoundingClientRect();
+		return (
+			rect.top >= 0 &&
+			rect.left >= 0 &&
+			rect.bottom <=
+				(window.innerHeight || document.documentElement.clientHeight) &&
+			rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+		);
+	}
+
+	const Listener = window.addEventListener('scroll', () => {
+		return isInViewport(document.querySelector('#TextInput-25'));
+	});
+
 	useEffect(() => {
 		if (!InterestResults == null || !InterestResults == '') {
 			axios
@@ -52,6 +73,7 @@ function Search() {
 							node="button"
 							waves="light"
 							id="BTTButton"
+							onClick={Top}
 						/>
 					);
 					setfirst(AllPosts);
@@ -68,21 +90,6 @@ function Search() {
 			}, 1000);
 		}
 	}, [InterestResults]);
-
-	function isInViewport(element) {
-		const rect = element.getBoundingClientRect();
-		return (
-			rect.top >= 0 &&
-			rect.left >= 0 &&
-			rect.bottom <=
-				(window.innerHeight || document.documentElement.clientHeight) &&
-			rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-		);
-	}
-
-	const Listener = window.addEventListener('scroll', () => {
-		return isInViewport(document.querySelector('#TextInput-25'));
-	});
 
 	return (
 		<div id="SearchContainer" align="center">
