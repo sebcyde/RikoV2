@@ -13,6 +13,7 @@ function Search() {
 	const [InterestResults, setInterestResults] = useState(null);
 	const [BTT, setBTT] = useState(null);
 	const SearchInput = useRef(null);
+	const [BTTButton, setBTTButton] = useState(false);
 
 	const Top = () => {
 		document
@@ -31,9 +32,11 @@ function Search() {
 		);
 	}
 
-	const Listener = window.addEventListener('scroll', () => {
-		return isInViewport(document.querySelector('#TextInput-25'));
-	});
+	const Listener = () => {
+		isInViewport(document.querySelector('#TextInput-25'))
+			? setBTTButton(false)
+			: setBTTButton(true);
+	};
 
 	useEffect(() => {
 		if (!InterestResults == null || !InterestResults == '') {
@@ -92,7 +95,7 @@ function Search() {
 	}, [InterestResults]);
 
 	return (
-		<div id="SearchContainer" align="center">
+		<div id="SearchContainer" align="center" onScroll={Listener}>
 			{Retrieving ? (
 				<LoadingScreen />
 			) : (
@@ -111,7 +114,7 @@ function Search() {
 					) : (
 						<>
 							{first}
-							{Listener ? null : <>{BTT}</>}
+							{BTTButton ? <>{BTT}</> : null}
 						</>
 					)}
 				</>
