@@ -66,20 +66,7 @@ export async function SignUp(email, password, username) {
 
 			console.log(user);
 		})
-		// .then((name, username) => {
-		// 	let newDataObject = {
-		// 		name: `${name}`,
-		// 		username: `${username}`,
-		// 		interests: [],
-		// 	};
 
-		// 	ref
-		// 		.doc()
-		// 		.set(newDataObject)
-		// 		.catch((error) => {
-		// 			alert(error);
-		// 		});
-		// })
 		.catch((error) => {
 			const errorMessage = error.message;
 			console.log(errorMessage);
@@ -98,3 +85,4 @@ export async function SignOut() {
 			console.log(error.message);
 		});
 }
+

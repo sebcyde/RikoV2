@@ -6,7 +6,7 @@ import '../StyleSheets/Home.css';
 import Profile from './Profile';
 import Dashboard from './Dashboard/Dashboard';
 import Search from './Search/Search';
-import Messages from './Messages';
+import Messages from './Messages/Messages';
 
 function Home() {
 	const navigate = useNavigate();
