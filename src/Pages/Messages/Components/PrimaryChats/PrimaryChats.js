@@ -25,7 +25,11 @@ function PrimaryChats() {
 							</a>
 						</CollectionItem>
 						<CollectionItem className="avatar">
-							<Icon className="circle">folder</Icon>
+							<img
+								alt=""
+								className="circle"
+								src="https://materializecss.com/images/yuna.jpg"
+							/>
 							<div className="TextContainer">
 								<span className="title">Name</span>
 
@@ -36,7 +40,11 @@ function PrimaryChats() {
 							</a>
 						</CollectionItem>
 						<CollectionItem className="avatar">
-							<Icon className="circle green">insert_chart</Icon>
+							<img
+								alt=""
+								className="circle"
+								src="https://materializecss.com/images/yuna.jpg"
+							/>
 							<div className="TextContainer">
 								<span className="title">Name</span>
 
@@ -47,7 +55,11 @@ function PrimaryChats() {
 							</a>
 						</CollectionItem>
 						<CollectionItem className="avatar">
-							<Icon className="circle red">play_arrow</Icon>
+							<img
+								alt=""
+								className="circle"
+								src="https://materializecss.com/images/yuna.jpg"
+							/>
 							<div className="TextContainer">
 								<span className="title">Name</span>
 
