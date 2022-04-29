@@ -62,6 +62,7 @@ export async function SignUp(email, password, username) {
 			setDoc(doc(db, 'Users', email), {
 				Email: email,
 				Interests: [],
+				Friends: [],
 			});
 
 			console.log(user);
@@ -85,4 +86,3 @@ export async function SignOut() {
 			console.log(error.message);
 		});
 }
-

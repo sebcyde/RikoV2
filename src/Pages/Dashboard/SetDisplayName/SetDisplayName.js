@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { onAuthStateChanged, getAuth, updateProfile } from 'firebase/auth';
 import { db } from '../../../Firebase';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc, setCollection } from 'firebase/firestore';
 import { Button, Modal, Form } from 'react-bootstrap';
 import './SetDisplayName.css';
 
@@ -25,10 +25,17 @@ function SetDisplayName() {
 			})
 				.then(() => {
 					console.log('User Display Name Updated Successfully');
+
 					const UserEmail = User.email;
+					const UsersMessagesRef = doc(db, 'Messages', UsernameInputField);
 					const UsersDocRef = doc(db, 'Users', UserEmail);
 					setDoc(
 						UsersDocRef,
+						{ Username: UsernameInputField },
+						{ merge: true }
+					);
+					setDoc(
+						UsersMessagesRef,
 						{ Username: UsernameInputField },
 						{ merge: true }
 					);
