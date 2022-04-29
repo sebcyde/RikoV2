@@ -1,59 +1,55 @@
 import React, { useState, useEffect } from 'react';
 import { Tabs, Tab, TextInput, Icon, Breadcrumb } from 'react-materialize';
+import Chatroom from './Components/Chatrooms/Chatroom';
 import PrimaryChats from './Components/PrimaryChats/PrimaryChats';
 import './Messages.css';
 
 function Messages() {
 	const [SearchTerm, setSearchTerm] = useState('');
-	const [ToChat, setToChat] = useState();
 	const [Chatting, setChatting] = useState(false);
-
-	useEffect(() => {
-		setToChat(
-			// will need to make an axios request to retrieve message data on page load
-			<>
-				<Tabs className="tab-demo z-depth-1" scope="tabs-22" id="TabsContainer">
-					<Tab
-						active
-						options={{
-							duration: 300,
-							onShow: null,
-							responsiveThreshold: Infinity,
-							swipeable: false,
-						}}
-						title="	Primary"
-						className="Tab"
-					>
-						<PrimaryChats />
-					</Tab>
-					<Tab
-						options={{
-							duration: 300,
-							onShow: null,
-							responsiveThreshold: Infinity,
-							swipeable: false,
-						}}
-						title="General"
-						className="Tab"
-					>
-						General
-					</Tab>
-					<Tab
-						options={{
-							duration: 300,
-							onShow: null,
-							responsiveThreshold: Infinity,
-							swipeable: false,
-						}}
-						title="Junk"
-						className="Tab"
-					>
-						Requests
-					</Tab>
-				</Tabs>
-			</>
-		);
-	}, []);
+	const [ToChat, setToChat] = useState(
+		<>
+			<Tabs className="tab-demo z-depth-1" scope="tabs-22" id="TabsContainer">
+				<Tab
+					active
+					options={{
+						duration: 300,
+						onShow: null,
+						responsiveThreshold: Infinity,
+						swipeable: false,
+					}}
+					title="	Primary"
+					className="Tab"
+				>
+					<PrimaryChats />
+				</Tab>
+				<Tab
+					options={{
+						duration: 300,
+						onShow: null,
+						responsiveThreshold: Infinity,
+						swipeable: false,
+					}}
+					title="General"
+					className="Tab"
+				>
+					General
+				</Tab>
+				<Tab
+					options={{
+						duration: 300,
+						onShow: null,
+						responsiveThreshold: Infinity,
+						swipeable: false,
+					}}
+					title="Junk"
+					className="Tab"
+				>
+					Requests
+				</Tab>
+			</Tabs>
+		</>
+	);
 
 	return (
 		<div id="MessagesContainer">
@@ -63,9 +59,58 @@ function Messages() {
 						id="BreadCrumbDivider"
 						onClick={() => {
 							setChatting(false);
+							setToChat(
+								<>
+									<>
+										<Tabs
+											className="tab-demo z-depth-1"
+											scope="tabs-22"
+											id="TabsContainer"
+										>
+											<Tab
+												active
+												options={{
+													duration: 300,
+													onShow: null,
+													responsiveThreshold: Infinity,
+													swipeable: false,
+												}}
+												title="	Primary"
+												className="Tab"
+											>
+												<PrimaryChats />
+											</Tab>
+											<Tab
+												options={{
+													duration: 300,
+													onShow: null,
+													responsiveThreshold: Infinity,
+													swipeable: false,
+												}}
+												title="General"
+												className="Tab"
+											>
+												General
+											</Tab>
+											<Tab
+												options={{
+													duration: 300,
+													onShow: null,
+													responsiveThreshold: Infinity,
+													swipeable: false,
+												}}
+												title="Junk"
+												className="Tab"
+											>
+												Requests
+											</Tab>
+										</Tabs>
+									</>
+								</>
+							);
 						}}
 					>
-						<span id="BackArrow" class="material-symbols-outlined">
+						<span id="BackArrow" className="material-symbols-outlined">
 							arrow_back
 						</span>
 						<span id="BackText">Back</span>
@@ -86,6 +131,11 @@ function Messages() {
 							className="material-symbols-outlined"
 							onClick={() => {
 								setChatting(true);
+								setToChat(
+									<>
+										<Chatroom />
+									</>
+								);
 							}}
 						>
 							open_in_new
