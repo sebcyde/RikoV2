@@ -1,14 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Row, Icon, CollectionItem, Col, Collection } from 'react-materialize';
 import './PrimaryChats.css';
+import Messages from '../../Messages';
+import { doc, onSnapshot } from 'firebase/firestore';
+import { db, Auth } from '../../../../Firebase';
+import { onAuthStateChanged, getAuth } from 'firebase/auth';
 
 function PrimaryChats() {
+	const auth = getAuth();
+	const user = auth.currentUser;
+
+	const OpenChat = (UserName) => {
+		console.log('Clicked Chat');
+		console.log(user);
+	};
+
+	useEffect(() => {
+		const NewMessage = onSnapshot(
+			doc(db, 'Messages', `${user.displayName}`),
+			(doc) => {
+				console.log('Current data: ', doc.data());
+			}
+		);
+	}, []);
+
 	return (
 		<div align="center" id="ChatsContainer">
 			<Row>
 				<Col m={6} s={12}>
 					<Collection>
-						<CollectionItem className="avatar">
+						<CollectionItem className="avatar" onClick={OpenChat}>
 							<img
 								alt=""
 								className="circle"

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { SignOut } from '../Firebase';
+import { onAuthStateChanged, getAuth } from 'firebase/auth';
 import { useNavigate, Link } from 'react-router-dom';
 import { Navbar, Icon, NavItem, Button } from 'react-materialize';
 import '../StyleSheets/Home.css';
@@ -9,6 +10,8 @@ import Search from './Search/Search';
 import Messages from './Messages/Messages';
 
 function Home() {
+	const auth = getAuth();
+	const user = auth.currentUser;
 	const navigate = useNavigate();
 
 	const [PageLoaded, setPageLoaded] = useState(<Dashboard />);
@@ -60,7 +63,7 @@ function Home() {
 					preventScrolling: true,
 				}}
 			>
-				<h1 id="NavbarTitle">Riko V2</h1>
+				<h1 id="NavbarTitle">{user.displayName}</h1>
 
 				<NavItem
 					href=""

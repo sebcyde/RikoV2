@@ -15,7 +15,7 @@
 #ChatsContainer .col.s12.m6 ul.collection li {
   border-left: none;
   border-right: none;
-  background-color: rgb(92, 92, 92);
+  background-color: rgb(32, 32, 32);
   display: flex;
   justify-content: center;
   width: 100%;
