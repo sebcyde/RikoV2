@@ -56,7 +56,6 @@ function PrimaryChats() {
 			});
 		}
 		RetrieveMessages().then(() => {
-			console.log(Messages);
 			setMCont(Messages);
 		});
 	}, []);

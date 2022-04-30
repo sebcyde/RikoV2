@@ -28,6 +28,43 @@ function Chatroom(RecipientUserName, SenderUserName) {
 	const [SearchedUsers, setSearchedUsers] = useState();
 	const [ReturnedUsers, setReturnedUsers] = useState();
 	const Users = [];
+	const Searched = [];
+
+	async function CheckSearch() {
+		const Query = await getDocs(collection(db, `Users`));
+		let tempArray = [];
+		Query.forEach((doc) => {
+			// tempArray.push(doc);
+			// console.log(doc.Email);
+			if (doc.id.includes(SearchedUsers)) {
+				tempArray.push(
+					<CollectionItem
+						className="avatar"
+						onClick={() => {
+							OpenChat(doc.data().Email);
+						}}
+					>
+						<img
+							alt=""
+							className="circle"
+							src="https://materializecss.com/images/yuna.jpg"
+						/>
+						<div className="TextContainer">
+							<span className="title">{doc.id}</span>
+
+							<p>{doc.data().Message}</p>
+						</div>
+
+						<a className="secondary-content">
+							<Icon>grade</Icon>
+						</a>
+					</CollectionItem>
+				);
+			}
+		});
+		console.log(tempArray);
+		setReturnedUsers(tempArray);
+	}
 
 	useEffect(() => {
 		async function RetrieveMessages() {
@@ -37,7 +74,7 @@ function Chatroom(RecipientUserName, SenderUserName) {
 					<CollectionItem
 						className="avatar"
 						onClick={() => {
-							OpenChat(doc.data().ID);
+							OpenChat(doc.data().Email);
 						}}
 					>
 						<img
@@ -59,7 +96,6 @@ function Chatroom(RecipientUserName, SenderUserName) {
 			});
 		}
 		RetrieveMessages().then(() => {
-			console.log(Users);
 			setReturnedUsers(Users);
 		});
 	}, []);
@@ -71,6 +107,7 @@ function Chatroom(RecipientUserName, SenderUserName) {
 				placeholder="Search Users"
 				onChange={(e) => {
 					setSearchedUsers(e.target.value);
+					CheckSearch();
 				}}
 			/>
 			<Row>
