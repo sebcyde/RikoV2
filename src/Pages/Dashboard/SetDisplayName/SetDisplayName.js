@@ -26,9 +26,8 @@ function SetDisplayName() {
 				.then(() => {
 					console.log('User Display Name Updated Successfully');
 
-					const UserEmail = User.email;
 					const UsersMessagesRef = doc(db, 'Messages', UsernameInputField);
-					const UsersDocRef = doc(db, 'Users', UserEmail);
+					const UsersDocRef = doc(db, 'Users', User.email);
 					setDoc(
 						UsersDocRef,
 						{ Username: UsernameInputField },

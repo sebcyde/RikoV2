@@ -6,6 +6,7 @@ import {
 	collection,
 	addDoc,
 	getFirestore,
+	Timestamp,
 } from 'firebase/firestore';
 import {
 	getAuth,
@@ -58,12 +59,22 @@ export async function SignUp(email, password, username) {
 		.then((userCredential) => {
 			// Signed in
 			const user = userCredential.user;
+			console.log(email.toString());
 
-			setDoc(doc(db, 'Users', email), {
-				Email: email,
+			setDoc(doc(db, 'Users', email.toLowerCase()), {
+				Email: email.toLowerCase(),
 				Interests: [],
 				Friends: [],
 			});
+
+			setDoc(collection(db, 'Users', `${email}/Received`), {
+				Email: email.toLowerCase(),
+				Interests: [],
+				Friends: [],
+			});
+
+			const UsersDocRef = collection(db, 'Users', user.email);
+			setDoc(UsersDocRef, { Me: user.email }, { merge: true });
 
 			console.log(user);
 		})

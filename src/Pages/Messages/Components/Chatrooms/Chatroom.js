@@ -28,14 +28,11 @@ function Chatroom(RecipientUserName, SenderUserName) {
 	const [SearchedUsers, setSearchedUsers] = useState();
 	const [ReturnedUsers, setReturnedUsers] = useState();
 	const Users = [];
-	const Searched = [];
 
 	async function CheckSearch() {
 		const Query = await getDocs(collection(db, `Users`));
 		let tempArray = [];
 		Query.forEach((doc) => {
-			// tempArray.push(doc);
-			// console.log(doc.Email);
 			if (doc.id.includes(SearchedUsers)) {
 				tempArray.push(
 					<CollectionItem
@@ -62,7 +59,6 @@ function Chatroom(RecipientUserName, SenderUserName) {
 				);
 			}
 		});
-		console.log(tempArray);
 		setReturnedUsers(tempArray);
 	}
 
