@@ -12,16 +12,16 @@ import {
 import { db, Auth } from '../../../../Firebase';
 import { onAuthStateChanged, getAuth } from 'firebase/auth';
 
+export const OpenChat = (UserName) => {
+	const RecieverEmail = UserName;
+	console.log(RecieverEmail);
+};
+
 function PrimaryChats() {
 	const auth = getAuth();
 	const user = auth.currentUser;
 	const Messages = [];
 	const [MCont, setMCont] = useState();
-
-	const OpenChat = (UserName) => {
-		console.log('Clicked Chat');
-		console.log(user);
-	};
 
 	useEffect(() => {
 		async function RetrieveMessages() {
@@ -30,7 +30,12 @@ function PrimaryChats() {
 			);
 			querySnapshot.forEach((doc) => {
 				Messages.push(
-					<CollectionItem className="avatar" onClick={OpenChat}>
+					<CollectionItem
+						className="avatar"
+						onClick={() => {
+							OpenChat(doc.data().ID);
+						}}
+					>
 						<img
 							alt=""
 							className="circle"

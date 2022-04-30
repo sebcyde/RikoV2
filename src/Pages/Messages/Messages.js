@@ -5,54 +5,14 @@ import PrimaryChats from './Components/PrimaryChats/PrimaryChats';
 import './Messages.css';
 import { db } from '../../Firebase';
 import { doc, getDoc } from 'firebase/firestore';
+import { OpenChat } from './Components/PrimaryChats/PrimaryChats';
+import MessagesTabs from './Components/MessagesTabs/MessagesTabs';
 
 function Messages() {
 	const [SearchTerm, setSearchTerm] = useState('');
 	const [ListOfUsers, setListOfUsers] = useState();
 	const [Chatting, setChatting] = useState(false);
-	const [ToChat, setToChat] = useState(
-		<>
-			<Tabs className="tab-demo z-depth-1" scope="tabs-22" id="TabsContainer">
-				<Tab
-					active
-					options={{
-						duration: 300,
-						onShow: null,
-						responsiveThreshold: Infinity,
-						swipeable: false,
-					}}
-					title="	Primary"
-					className="Tab"
-				>
-					<PrimaryChats />
-				</Tab>
-				<Tab
-					options={{
-						duration: 300,
-						onShow: null,
-						responsiveThreshold: Infinity,
-						swipeable: false,
-					}}
-					title="General"
-					className="Tab"
-				>
-					General
-				</Tab>
-				<Tab
-					options={{
-						duration: 300,
-						onShow: null,
-						responsiveThreshold: Infinity,
-						swipeable: false,
-					}}
-					title="Junk"
-					className="Tab"
-				>
-					Requests
-				</Tab>
-			</Tabs>
-		</>
-	);
+	const [ToChat, setToChat] = useState(<MessagesTabs />);
 
 	const ReturnUsers = async () => {
 		const docSnap = await getDoc(doc(db, 'Users', SearchTerm));
@@ -68,55 +28,7 @@ function Messages() {
 						id="BreadCrumbDivider"
 						onClick={() => {
 							setChatting(false);
-							setToChat(
-								<>
-									<>
-										<Tabs
-											className="tab-demo z-depth-1"
-											scope="tabs-22"
-											id="TabsContainer"
-										>
-											<Tab
-												active
-												options={{
-													duration: 300,
-													onShow: null,
-													responsiveThreshold: Infinity,
-													swipeable: false,
-												}}
-												title="	Primary"
-												className="Tab"
-											>
-												<PrimaryChats />
-											</Tab>
-											<Tab
-												options={{
-													duration: 300,
-													onShow: null,
-													responsiveThreshold: Infinity,
-													swipeable: false,
-												}}
-												title="General"
-												className="Tab"
-											>
-												General
-											</Tab>
-											<Tab
-												options={{
-													duration: 300,
-													onShow: null,
-													responsiveThreshold: Infinity,
-													swipeable: false,
-												}}
-												title="Junk"
-												className="Tab"
-											>
-												Requests
-											</Tab>
-										</Tabs>
-									</>
-								</>
-							);
+							setToChat(<MessagesTabs />);
 						}}
 					>
 						<span id="BackArrow" className="material-symbols-outlined">
