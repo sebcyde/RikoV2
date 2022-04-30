@@ -2,32 +2,48 @@
   width: 100%;
   height: 100%;
 }
+
 #ChatsContainer .col.s12.m6 {
   width: 100% !important;
   padding: 0px;
 }
+
 #ChatsContainer .col.s12.m6 ul.collection {
   width: 100% !important;
   border-left: none;
   border-right: none;
   margin-top: 0px;
 }
+
 #ChatsContainer .col.s12.m6 ul.collection li {
   border-left: none;
   border-right: none;
-  background-color: rgb(32, 32, 32);
+  background-color: #202020;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
 }
+
 #ChatsContainer .col.s12.m6 ul.collection li i,
 #ChatsContainer .col.s12.m6 ul.collection li img {
   width: 60px;
   height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
+
 #ChatsContainer .col.s12.m6 ul.collection li a.secondary-content {
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -36,23 +52,34 @@
   width: -moz-fit-content;
   width: fit-content;
 }
+
 #ChatsContainer .col.s12.m6 ul.collection li i.material-icons {
   width: 50px;
   padding-bottom: 10px;
 }
+
 #ChatsContainer .col.s12.m6 ul.collection li .TextContainer {
   text-overflow: ellipsis;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   width: 80%;
   margin-right: auto;
   text-align: start;
   padding-left: 25px;
 }
+
 #ChatsContainer .col.s12.m6 ul.collection li .TextContainer span {
   font-size: 32px;
 }
+
 #ChatsContainer .col.s12.m6 ul.collection li .TextContainer p {
   font-size: 22px;
-}/*# sourceMappingURL=PrimaryChats.css.map */
+}
+/*# sourceMappingURL=PrimaryChats.css.map */

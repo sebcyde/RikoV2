@@ -4,14 +4,14 @@ import './App.css';
 import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import LoginPage from './Pages/LoginPage';
+import LoginPage from './Pages/LoginPage/LoginPage';
 import LoadingScreen from './LoadingScreen';
-import Home from './Pages/Home';
+import Home from './Pages/Home/Home';
 import { Login, SignUp, SignOut } from './Firebase';
 import { onAuthStateChanged, getAuth } from 'firebase/auth';
 import { LoadingContext } from './Context/SignUp.js';
 import { LoginContext } from './Context/Login';
-import SignUpPage from './Pages/SignUpPage';
+import SignUpPage from './Pages/SignUpPage/SignUpPage';
 
 function App() {
 	const auth = getAuth();

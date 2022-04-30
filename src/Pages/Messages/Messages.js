@@ -3,9 +3,12 @@ import { Tabs, Tab, TextInput, Icon, Breadcrumb } from 'react-materialize';
 import Chatroom from './Components/Chatrooms/Chatroom';
 import PrimaryChats from './Components/PrimaryChats/PrimaryChats';
 import './Messages.css';
+import { db } from '../../Firebase';
+import { doc, getDoc } from 'firebase/firestore';
 
 function Messages() {
 	const [SearchTerm, setSearchTerm] = useState('');
+	const [ListOfUsers, setListOfUsers] = useState();
 	const [Chatting, setChatting] = useState(false);
 	const [ToChat, setToChat] = useState(
 		<>
@@ -50,6 +53,12 @@ function Messages() {
 			</Tabs>
 		</>
 	);
+
+	const ReturnUsers = async () => {
+		const docSnap = await getDoc(doc(db, 'Users', SearchTerm));
+		console.log('Document data:', docSnap.data());
+		setListOfUsers();
+	};
 
 	return (
 		<div id="MessagesContainer">
@@ -125,6 +134,7 @@ function Messages() {
 							placeholder="Search"
 							onChange={(e) => {
 								setSearchTerm(e.target.value);
+								ReturnUsers();
 							}}
 						/>
 						<span

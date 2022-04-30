@@ -1,11 +1,11 @@
 import React from 'react';
 import { Row, Col, Card, Icon, Button, TextInput } from 'react-materialize';
-import '../StyleSheets/LoginPage.css';
+import '../../StyleSheets/LoginPage.css';
 import { useRef, useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { LoginContext } from '../Context/Login';
-import { Login } from '../Firebase';
-import { LoadingContext } from '../Context/SignUp';
+import { LoginContext } from '../../Context/Login';
+import { Login } from '../../Firebase';
+import { LoadingContext } from '../../Context/SignUp';
 
 function LoginPage() {
 	const navigate = useNavigate();

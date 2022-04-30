@@ -1,9 +1,9 @@
 import React from 'react';
 import { Row, Col, Card, Icon, Button, TextInput } from 'react-materialize';
-import '../StyleSheets/SignUpPage.css';
+import '../../StyleSheets/SignUpPage.css';
 import { useRef, useContext, useState } from 'react';
-import { LoginContext } from '../Context/Login';
-import { SignUp } from '../Firebase';
+import { LoginContext } from '../../Context/Login';
+import { SignUp } from '../../Firebase';
 import { useNavigate, Link } from 'react-router-dom';
 
 function SignUpPage() {

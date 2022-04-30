@@ -3,72 +3,105 @@
   height: 100%;
   overflow-y: scroll;
 }
+
 #SearchContainer #SearchTopLevelRow {
   margin-bottom: 2em;
   font-size: 20px;
-  font-family: "Genos", sans-serif;
+  font-family: 'Genos', sans-serif;
   font-size: 25px;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
+
 #SearchContainer #SearchTopLevelRow input {
   margin-top: 1em;
   color: white;
-  font-family: "Genos", sans-serif;
+  font-family: 'Genos', sans-serif;
   font-size: 23px;
   text-align: center;
 }
+
 #SearchContainer #SearchTopLevelRow input:focus {
   color: white;
-  font-family: "Genos", sans-serif;
+  font-family: 'Genos', sans-serif;
   font-size: 25px;
   border-bottom: 1px solid black !important;
-  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
 }
+
 #SearchContainer #SearchTopLevelRow #TextInput-25 {
   position: -webkit-sticky !important;
   position: sticky !important;
 }
+
 #SearchContainer .RedditPost {
   width: 95%;
-  border: 2px solid rgb(106, 0, 0);
+  border: 2px solid #6a0000;
   border-radius: 10px;
   margin: 10px;
   margin-bottom: 20px;
   padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  box-shadow: 5px 5px 5px black;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-shadow: 5px 5px 5px black;
+          box-shadow: 5px 5px 5px black;
 }
+
 #SearchContainer .RedditPost .RedditPostHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   width: 100%;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 0px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  background-color: rgb(106, 0, 0);
+  background-color: #6a0000;
 }
+
 #SearchContainer .RedditPost .RedditPostHeader h4 {
   margin: 0px;
   padding: 10px;
   font-size: 20px;
 }
+
 #SearchContainer .RedditPost .RedditPostContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding-left: 10px;
   padding-right: 10px;
 }
+
 #SearchContainer .RedditPost .RedditPostContent h3 {
   font-size: 25px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
 #SearchContainer .RedditPost .RedditPostContent .RedditImage {
   border-radius: 10px;
   width: 95%;
@@ -76,6 +109,7 @@
   margin-left: auto;
   margin-right: auto;
 }
+
 #SearchContainer #BTTButton {
   position: fixed !important;
   bottom: 30px;
@@ -83,6 +117,7 @@
   width: 60px !important;
   height: 60px !important;
 }
+
 #SearchContainer .Unfollowed,
 #SearchContainer .Followed {
   font-size: 20px;
@@ -96,13 +131,17 @@
   height: fit-content;
   margin-bottom: 1em;
   margin-top: 0.6em;
-  box-shadow: 5px 5px 5px black;
+  -webkit-box-shadow: 5px 5px 5px black;
+          box-shadow: 5px 5px 5px black;
   border-radius: 10px;
   border: 1px solid white;
 }
+
 #SearchContainer .Unfollowed {
   background-color: black;
 }
+
 #SearchContainer .Followed {
   background-color: cornflowerblue;
-}/*# sourceMappingURL=Search.css.map */
+}
+/*# sourceMappingURL=Search.css.map */

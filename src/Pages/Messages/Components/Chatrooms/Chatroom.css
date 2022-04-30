@@ -1,21 +1,35 @@
 #ChatroomContainer {
   width: 100%;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 #ChatroomContainer .input-field.col {
   width: 100%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  flex: 0;
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 #ChatroomContainer #TextInput-25 {
   margin-top: 10px;
   width: 70%;
   margin-left: auto;
   margin-right: auto;
-}/*# sourceMappingURL=Chatroom.css.map */
+}
+/*# sourceMappingURL=Chatroom.css.map */
