@@ -15,6 +15,7 @@ import { onAuthStateChanged, getAuth } from 'firebase/auth';
 export const OpenChat = (UserName) => {
 	const RecieverEmail = UserName;
 	console.log(RecieverEmail);
+	return RecieverEmail;
 };
 
 function PrimaryChats() {
