@@ -48,8 +48,6 @@ function Chatroom(RecipientUserName, SenderUserName) {
 						/>
 						<div className="TextContainer">
 							<span className="title">{doc.id}</span>
-
-							<p>{doc.data().Message}</p>
 						</div>
 
 						<a className="secondary-content">
@@ -80,8 +78,6 @@ function Chatroom(RecipientUserName, SenderUserName) {
 						/>
 						<div className="TextContainer">
 							<span className="title">{doc.id}</span>
-
-							<p>{doc.data().Message}</p>
 						</div>
 
 						<a className="secondary-content">
