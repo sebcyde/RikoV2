@@ -2,5 +2,11 @@
 	"terminal.integrated.fontSize": 14,
 	"editor.wordWrap": "on",
 	"editor.bracketPairColorization.independentColorPoolPerBracketType": true,
-	"editor.fontSize": 14
+	"editor.fontSize": 14,
+	"zenMode.hideStatusBar": false,
+	"editor.formatOnSave": true,
+	"editor.cursorStyle": "line",
+	"editor.fontFamily": "Fira Code",
+	"css.format.spaceAroundSelectorSeparator": true,
+	"editor.foldingImportsByDefault": true
 }

@@ -12,6 +12,8 @@ import { onAuthStateChanged, getAuth } from 'firebase/auth';
 import { LoadingContext } from './Context/SignUp.js';
 import { LoginContext } from './Context/Login';
 import SignUpPage from './Pages/SignUpPage/SignUpPage';
+import Chat from './Pages/Messages/Components/Chat/Chat';
+import Messages from './Pages/Messages/Messages';
 
 function App() {
 	const auth = getAuth();
@@ -52,6 +54,17 @@ function App() {
 								<Route
 									path="/SignUp"
 									element={User ? <Home /> : <SignUpPage />}
+								/>
+
+								<Route
+									path="/Chat/:Recipient"
+									element={
+										User ? <Chat path="/Chat/:Recipient" /> : <LoginPage />
+									}
+								/>
+								<Route
+									path="/Messages"
+									element={User ? <Messages /> : <LoginPage />}
 								/>
 							</Routes>
 						</LoadingContext.Provider>

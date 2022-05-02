@@ -21,15 +21,17 @@ function Dashboard() {
 			await getDoc(UserInterestsRef).then((response) => {
 				const UserData = response._document.data.value.mapValue.fields;
 				const Interests = UserData.Interests.arrayValue.values;
-				Interests.map((Interest) => {
-					if (!UserInterests.includes(Interest)) {
-						UserInterests.push(Interest.stringValue);
-					}
-				});
+				if (UserInterests.length != 0) {
+					Interests.map((Interest) => {
+						if (!UserInterests.includes(Interest)) {
+							UserInterests.push(Interest.stringValue);
+						}
+					});
+				}
 			});
 		}
-		GetUserInterests()
-			.then(() => {
+		GetUserInterests().then(() => {
+			if (UserInterests.length != 0) {
 				UserInterests.map((Interest, i) => {
 					while (i < 3) {
 						axios
@@ -44,11 +46,8 @@ function Dashboard() {
 					}
 					setRPosts(FinalInterestList);
 				});
-			})
-			.then(() => {
-				console.log(FinalInterestList);
-				console.log(RPosts);
-			});
+			}
+		});
 	}, []);
 
 	return (

@@ -18,7 +18,7 @@ import {
 	collection,
 	getDocs,
 } from 'firebase/firestore';
-import { OpenChat } from '../PrimaryChats/PrimaryChats';
+import { useNavigate } from 'react-router-dom';
 
 function Chatroom(RecipientUserName, SenderUserName) {
 	const auth = getAuth();
@@ -28,6 +28,12 @@ function Chatroom(RecipientUserName, SenderUserName) {
 	const [SearchedUsers, setSearchedUsers] = useState();
 	const [ReturnedUsers, setReturnedUsers] = useState();
 	const Users = [];
+	const navigate = useNavigate();
+
+	const OpenChat = (UserName) => {
+		const RecieverEmail = UserName;
+		navigate(`/Chat/${RecieverEmail}`, { Name: RecieverEmail });
+	};
 
 	async function CheckSearch() {
 		const Query = await getDocs(collection(db, `Users`));

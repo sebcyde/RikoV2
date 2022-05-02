@@ -11,18 +11,19 @@ import {
 } from 'firebase/firestore';
 import { db, Auth } from '../../../../Firebase';
 import { onAuthStateChanged, getAuth } from 'firebase/auth';
-
-export const OpenChat = (UserName) => {
-	const RecieverEmail = UserName;
-	console.log(RecieverEmail);
-	return RecieverEmail;
-};
+import { useNavigate } from 'react-router-dom';
 
 function PrimaryChats() {
 	const auth = getAuth();
 	const user = auth.currentUser;
 	const Messages = [];
 	const [MCont, setMCont] = useState();
+	const navigate = useNavigate();
+
+	const OpenChat = (UserName) => {
+		const RecieverEmail = UserName;
+		navigate(`/Chat/${RecieverEmail}`, { Name: RecieverEmail });
+	};
 
 	useEffect(() => {
 		async function RetrieveMessages() {
@@ -30,9 +31,11 @@ function PrimaryChats() {
 				collection(db, `Users/${user.email}/Received`)
 			);
 			querySnapshot.forEach((doc) => {
+				let i = 0;
 				Messages.push(
 					<CollectionItem
 						className="avatar"
+						key={i}
 						onClick={() => {
 							OpenChat(doc.data().ID);
 						}}
@@ -53,6 +56,7 @@ function PrimaryChats() {
 						</a>
 					</CollectionItem>
 				);
+				i++;
 			});
 		}
 		RetrieveMessages().then(() => {
