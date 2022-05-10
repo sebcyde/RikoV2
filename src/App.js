@@ -14,7 +14,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import LoginPage from './Pages/LoginPage/LoginPage';
 import LoadingScreen from './LoadingScreen';
 import Home from './Pages/Home/Home';
-import { Login, SignUp, SignOut } from './Firebase';
 import { onAuthStateChanged, getAuth } from 'firebase/auth';
 import SignUpPage from './Pages/SignUpPage/SignUpPage';
 import Chat from './Pages/Messages/Components/Components/Chat/Chat';

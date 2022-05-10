@@ -1,6 +1,14 @@
 #DashboardContainer {
+	margin: 0;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(32, 32, 32);
+	color: white;
 	overflow: hidden;
+	overflow-y: scroll;
 	background-attachment: fixed !important;
+	overflow: hidden;
 
 	iframe article {
 		padding: 0px !important;

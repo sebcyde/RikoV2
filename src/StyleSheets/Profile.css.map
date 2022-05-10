@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,iBAAiB,CAAC;EACjB,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,KAAK;CACZ",
-    "sources": [
-        "Profile.scss"
-    ],
-    "names": [],
-    "file": "Profile.css"
-}
+{"version":3,"sources":["Profile.scss","Profile.css"],"names":[],"mappings":"AAAA;EACC,SAAA;EACA,YAAA;EACA,WAAA;EACA,YAAA;EACA,iCAAA;EACA,YAAA;EACA,gBAAA;EACA,kBAAA;EACA,uCAAA;EACA,gBAAA;ACCD","file":"Profile.css"}

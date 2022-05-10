@@ -19,6 +19,10 @@ function Search() {
 	const FollowButton = useRef();
 	const [, forceUpdate] = useReducer((x) => x + 1, 0);
 
+	const Suggestions = (Suggested) => {
+		setInterestResults(Suggested);
+	};
+
 	const AddToLikes = () => {
 		console.log('Follow Button Clicked');
 		setFollowing(`Followed!`);
