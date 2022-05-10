@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useReducer } from 'react';
 import axios from 'axios';
 import '../../StyleSheets/Search.css';
 import LoadingScreen from '../../LoadingScreen';
@@ -15,12 +15,13 @@ function Search() {
 	const SearchInput = useRef(null);
 	const [BTTButton, setBTTButton] = useState(false);
 	const [Following, setFollowing] = useState(null);
-	const [YN, setYN] = useState('Followed');
+	const [YN, setYN] = useState('Following');
+	const FollowButton = useRef();
+	const [, forceUpdate] = useReducer((x) => x + 1, 0);
 
-	const Change = () => {
-		console.log('clicked');
-		setFollowing(`Unfollow ${InterestResults}`);
-		YN === 'Unfollowed' ? setYN('Followed') : setYN('Unfollowed');
+	const AddToLikes = () => {
+		console.log('Follow Button Clicked');
+		setFollowing(`Followed!`);
 	};
 
 	const Top = () => {
@@ -55,7 +56,6 @@ function Search() {
 			axios
 				.get(`https://www.reddit.com/r/${InterestResults}.json`)
 				.then((response) => {
-					console.log(response.data.data.children);
 					response.data.data.children.forEach((element) => {
 						RedditPosts.push(element.data);
 					});
@@ -99,9 +99,10 @@ function Search() {
 						<>
 							{
 								<Button
+									ref={FollowButton}
 									node="button"
 									waves="light"
-									onClick={Change}
+									onClick={(AddToLikes(), forceUpdate())}
 									className={YN}
 								>
 									{Following}

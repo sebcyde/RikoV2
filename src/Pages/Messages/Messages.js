@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Tabs, Tab, TextInput, Icon, Breadcrumb } from 'react-materialize';
-import Chatroom from './Components/Chatrooms/Chatroom';
+import Chatroom from './Components/Components/Chatrooms/Chatroom';
 import PrimaryChats from './Components/PrimaryChats/PrimaryChats';
 import './Messages.css';
 import { db } from '../../Firebase';

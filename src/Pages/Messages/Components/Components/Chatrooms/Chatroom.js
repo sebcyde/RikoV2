@@ -8,8 +8,8 @@ import {
 	Collection,
 	TextInput,
 } from 'react-materialize';
-import Messages from '../../Messages';
-import { db, Auth } from '../../../../Firebase';
+import Messages from '../../../Messages';
+import { db, Auth } from '../../../../../Firebase';
 import { onAuthStateChanged, getAuth } from 'firebase/auth';
 import {
 	doc,

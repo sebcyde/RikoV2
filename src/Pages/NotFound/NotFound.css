@@ -1,0 +1,15 @@
+#NotFoundContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#NotFoundContainer #NotFoundImage {
+  width: 50%;
+  height: auto;
+}
+#NotFoundContainer #NotFoundH2 {
+  color: red;
+}/*# sourceMappingURL=NotFound.css.map */
