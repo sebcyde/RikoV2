@@ -1,20 +1,6 @@
 import React from 'react';
-import {
-	BrowserRouter,
-	Router,
-	Routes,
-	Route,
-	Link,
-	useNavigate,
-} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Navbar, Icon, NavItem, Button } from 'react-materialize';
-import SignUpPage from './Pages/SignUpPage/SignUpPage';
-import Chat from './Pages/Messages/Components/Components/Chat/Chat';
-import Messages from './Pages/Messages/Messages';
-import Search from './Pages/Search/Search';
-import Dashboard from './Pages/Dashboard/Dashboard';
-import Profile from './Pages/Profile/Profile';
-import NotFound from './Pages/NotFound/NotFound';
 
 function Navbar() {
 	const navigate = useNavigate();
@@ -49,7 +35,7 @@ function Navbar() {
 				preventScrolling: true,
 			}}
 		>
-			<h1 id="NavbarTitle">{user.displayName}</h1>
+			<h1 id="NavbarTitle">Riko</h1>
 
 			<NavItem
 				href=""
