@@ -1,8 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Navbar, Icon, NavItem, Button } from 'react-materialize';
+import { SignOut } from '../Firebase';
 
-function Navbar() {
+function NavBar() {
 	const navigate = useNavigate();
 
 	async function AppSignOut() {
@@ -94,4 +95,4 @@ function Navbar() {
 	);
 }
 
-export default Navbar;
+export default NavBar;

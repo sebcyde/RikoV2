@@ -16,7 +16,6 @@ import LoadingScreen from './LoadingScreen';
 import Home from './Pages/Home/Home';
 import { Login, SignUp, SignOut } from './Firebase';
 import { onAuthStateChanged, getAuth } from 'firebase/auth';
-import { Navbar, Icon, NavItem, Button } from 'react-materialize';
 import SignUpPage from './Pages/SignUpPage/SignUpPage';
 import Chat from './Pages/Messages/Components/Components/Chat/Chat';
 import Messages from './Pages/Messages/Messages';
@@ -24,6 +23,7 @@ import Search from './Pages/Search/Search';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Profile from './Pages/Profile/Profile';
 import NotFound from './Pages/NotFound/NotFound';
+import Navbar from './Navbar/Navbar';
 
 function App() {
 	const auth = getAuth();

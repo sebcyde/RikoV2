@@ -7,7 +7,7 @@
 div#App nav .nav-wrapper {
 	background-color: rgb(106, 0, 0);
 }
-div#App nav #mobile-nav {
+div#App #mobile-nav {
 	background-color: rgb(32, 32, 32);
 	color: white;
 	padding: 0px;
@@ -17,7 +17,7 @@ div#App nav #mobile-nav {
 	text-align: center;
 	height: 100%;
 }
-div#App nav #mobile-nav h1#sidenav-NavbarTitle {
+div#App #mobile-nav h1#sidenav-NavbarTitle {
 	text-align: center;
 	padding: 0.5em;
 	margin-top: 0px;
@@ -25,19 +25,19 @@ div#App nav #mobile-nav h1#sidenav-NavbarTitle {
 	font-size: 40px;
 	text-overflow: ellipsis;
 }
-div#App nav #mobile-nav li {
+div#App #mobile-nav li {
 	width: 100%;
 	text-align: start;
 	margin-bottom: 2em;
 }
-div#App nav #mobile-nav li a {
+div#App #mobile-nav li a {
 	color: white;
 	font-size: 30px;
 }
-div#App nav #mobile-nav li:nth-of-type(6) {
+div#App #mobile-nav li:nth-of-type(6) {
 	margin-top: auto;
 }
-div#App nav #mobile-nav #sidenav-SignOutButton {
+div#App #mobile-nav #sidenav-SignOutButton {
 	width: 50%;
 	text-align: center;
 	margin-left: auto !important;
