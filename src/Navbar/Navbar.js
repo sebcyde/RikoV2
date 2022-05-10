@@ -36,7 +36,7 @@ function NavBar() {
 				preventScrolling: true,
 			}}
 		>
-			<h1 id="NavbarTitle">Riko</h1>
+			<h1 id="NavbarTitle">Riko V1</h1>
 
 			<NavItem
 				href=""
